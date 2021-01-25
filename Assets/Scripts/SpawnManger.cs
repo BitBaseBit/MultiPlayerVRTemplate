@@ -9,14 +9,22 @@ public class SpawnManger : MonoBehaviour
     GameObject genericVRPrefab;
 
     public Vector3 spawnPosition;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         if (PhotonNetwork.IsConnectedAndReady)
         {
             PhotonNetwork.Instantiate(genericVRPrefab.name,spawnPosition, Quaternion.identity);
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //if (PhotonNetwork.IsConnectedAndReady)
+        //{
+        //    PhotonNetwork.Instantiate(genericVRPrefab.name,spawnPosition, Quaternion.identity);
+        //}
     }
 
     // Update is called once per frame

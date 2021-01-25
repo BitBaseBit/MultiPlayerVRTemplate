@@ -8,20 +8,7 @@ public class GenericVRPlayerComponents : MonoBehaviour
     public GameObject leftHand;
     public GameObject oculusTouchLeft;
     public GameObject oculusTouchRight;
-    GenericVRPlayerComponents instance;
 
-    private void Awake()
-    {
-        // if the singleton hasn't been initialized yet
-        if (instance != null && instance != this)
-        {
-            Destroy(this.gameObject);
-            return;//Avoid doing anything else
-        }
-
-        instance = this;
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     // Start is called before the first frame update
     void Start()

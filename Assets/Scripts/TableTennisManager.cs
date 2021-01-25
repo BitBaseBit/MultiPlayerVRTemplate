@@ -28,7 +28,8 @@ public class TableTennisManager : MonoBehaviour
     public void OnSelectEnter()
     {
         var grabInteractable = GetComponent<XRGrabInteractable>();
-        string handEnter = grabInteractable.m_SelectingInteractor.name;
+
+        string handEnter = grabInteractable.selectingInteractor.name;
 
         if (handEnter == "Right Base Controller")
         {
