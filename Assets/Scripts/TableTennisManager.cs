@@ -11,6 +11,8 @@ public class TableTennisManager : MonoBehaviour
     public GameObject oculusTouchRight;
     public GameObject bat;
 
+    public Rigidbody rb;
+
     char hand;
 
     // Start is called before the first frame update

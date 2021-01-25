@@ -64,13 +64,11 @@ public class HomeRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log(message);
         CreateAndJoinRoom();
     }
 
     public override void OnCreatedRoom()
     {
-        Debug.Log("A room has been created");
     }
 
     public override void OnConnectedToMaster()
@@ -80,14 +78,11 @@ public class HomeRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Success!" + PhotonNetwork.NickName + "has joined the room");
         if (PhotonNetwork.CurrentRoom.CustomProperties.ContainsKey(MultiplayerVRConstants.MAP_TYPE_KEY))
         {
             object mapType;
             if (PhotonNetwork.CurrentRoom.CustomProperties.TryGetValue(MultiplayerVRConstants.MAP_TYPE_KEY, out mapType))
             {
-                Debug.Log("Joined room with map: " + (string)mapType);
-
                 if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_SCHOOL)
                 {
                     PhotonNetwork.LoadLevel("World_School");
@@ -103,7 +98,6 @@ public class HomeRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.Log(newPlayer.NickName + "has joined the room!");
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -116,15 +110,12 @@ public class HomeRoomManager : MonoBehaviourPunCallbacks
 
         foreach (RoomInfo room in roomList)
         {
-            Debug.Log(room.Name);
             if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_OUTDOOR))
             {
-                Debug.Log("Room is outdoor map, Player count is:" + room.PlayerCount.ToString());
                 occupancyRateText_Outdoor.text = room.PlayerCount.ToString() + " / 20";
             }
             else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_OUTDOOR))
             {
-                Debug.Log("Room is School map, Player count is:" + room.PlayerCount.ToString());
                 occupancyRateText_School.text = room.PlayerCount.ToString() + " / 20";
             }
         }
@@ -132,7 +123,6 @@ public class HomeRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()
     {
-        Debug.Log("Joined Lobby");
     }
     #endregion
 

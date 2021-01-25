@@ -17,7 +17,6 @@ public class UIManager : MonoBehaviour
 
     public void OnWorldsButtonClicked()
     {
-        Debug.Log("Worlds BUtton Clicked");
         if (UI_OpenWorldsGameObj != null)
         {
             UI_OpenWorldsGameObj.SetActive(true);
