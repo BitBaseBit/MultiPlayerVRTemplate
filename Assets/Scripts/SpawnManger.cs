@@ -17,7 +17,6 @@ public class SpawnManger : MonoBehaviour
         {
             PhotonNetwork.Instantiate(genericVRPrefab.name,spawnPosition, Quaternion.identity);
         }
-        
     }
 
     // Update is called once per frame
