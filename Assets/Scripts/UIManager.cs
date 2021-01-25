@@ -30,6 +30,6 @@ public class UIManager : MonoBehaviour
 
     public void OnChangeAvatarButtonClicked()
     {
-        Debug.Log("Change avatar button clicked");
+        AvatarSelectionManager.Instance.ActivateAvatarSelectionPlatform();
     }
 }
