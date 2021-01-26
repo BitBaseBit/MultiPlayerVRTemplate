@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GenericVRPlayerComponents : MonoBehaviour
 {
-    public GameObject rightHand;
-    public GameObject leftHand;
     public GameObject oculusTouchLeft;
     public GameObject oculusTouchRight;
 

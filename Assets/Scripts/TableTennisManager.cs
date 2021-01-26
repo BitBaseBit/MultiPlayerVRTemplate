@@ -5,15 +5,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class TableTennisManager : MonoBehaviour
 {
-    public GameObject rightHand;
-    public GameObject leftHand;
     public GameObject oculusTouchLeft;
     public GameObject oculusTouchRight;
     public GameObject bat;
 
-    public Rigidbody rb;
+    public Transform leftTransform;
+    public Transform rightTransform;
 
-    char hand;
+    public Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
@@ -27,35 +26,44 @@ public class TableTennisManager : MonoBehaviour
         
     }
 
+
     public void OnSelectEnter()
     {
         var grabInteractable = GetComponent<XRGrabInteractable>();
 
+
+        GameObject avatar = GameObject.FindGameObjectWithTag("avatar");
+
+        var avatarHands = avatar.GetComponent<AvatarHolder>();
+
         string handEnter = grabInteractable.selectingInteractor.name;
+
 
         if (handEnter == "Right Base Controller")
         {
-            hand = 'R';
-            rightHand.SetActive(false);
-            leftHand.SetActive(false);
+            grabInteractable.attachTransform = rightTransform;
+            avatarHands.rightHand.SetActive(false);
+            avatarHands.leftHand.SetActive(false);
             oculusTouchLeft.SetActive(true);
             oculusTouchRight.SetActive(false);
         }
         else if (handEnter == "Left Base Controller")
         {
-            hand = 'L';
-            rightHand.SetActive(false);
-            leftHand.SetActive(false);
+            grabInteractable.attachTransform = leftTransform;
+            avatarHands.rightHand.SetActive(false);
+            avatarHands.leftHand.SetActive(false);
             oculusTouchLeft.SetActive(false);
             oculusTouchRight.SetActive(true); 
-
         }
     }
 
     public void OnSelectExit()
     {
-        rightHand.SetActive(true);
-        leftHand.SetActive(true);
+        GameObject avatar = GameObject.FindGameObjectWithTag("avatar");
+        var avatarHands = avatar.GetComponent<AvatarHolder>();
+
+        avatarHands.rightHand.SetActive(true);
+        avatarHands.leftHand.SetActive(true);
         oculusTouchLeft.SetActive(false);
         oculusTouchRight.SetActive(false);
     }

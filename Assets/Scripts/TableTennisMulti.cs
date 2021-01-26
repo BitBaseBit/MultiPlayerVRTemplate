@@ -38,16 +38,16 @@ public class TableTennisMulti : MonoBehaviour
         if (handEnter == "Right Base Controller")
         {
             hand = 'R';
-            components.rightHand.SetActive(false);
-            components.leftHand.SetActive(false);
+            AvatarHands.Instance.rightHand.SetActive(false);
+            AvatarHands.Instance.leftHand.SetActive(false);
             components.oculusTouchLeft.SetActive(true);
             components.oculusTouchRight.SetActive(false);
         }
         else if (handEnter == "Left Base Controller")
         {
             hand = 'L';
-            components.rightHand.SetActive(false);
-            components.leftHand.SetActive(false);
+            AvatarHands.Instance.rightHand.SetActive(false);
+            AvatarHands.Instance.leftHand.SetActive(false);
             components.oculusTouchLeft.SetActive(false);
             components.oculusTouchRight.SetActive(true); 
 
@@ -58,8 +58,8 @@ public class TableTennisMulti : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         components = player.GetComponent<GenericVRPlayerComponents>();
-        components.rightHand.SetActive(true);
-        components.leftHand.SetActive(true);
+        AvatarHands.Instance.rightHand.SetActive(true);
+        AvatarHands.Instance.leftHand.SetActive(true);
         components.oculusTouchLeft.SetActive(false);
         components.oculusTouchRight.SetActive(false);
     }

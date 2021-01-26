@@ -2404,8 +2404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57616352b43c9704d89088d6a5e13f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHand: {fileID: 0}
-  leftHand: {fileID: 0}
   oculusTouchLeft: {fileID: 4625755875349104008}
   oculusTouchRight: {fileID: 3930244237791413164}
 --- !u!1 &6434950023774586696
