@@ -14,6 +14,9 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
 
     char hand;
     GameObject player;
+
+    NetworkGrabbingBat Instance;
+
     GenericVRPlayerComponents components;
 
     GameObject leftParent;
@@ -24,10 +27,18 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
     public Transform rightTransform;
 
     bool isHovering = false;
+    bool isHolding = false;
 
     private void Awake()
     {
         photonView = GetComponent<PhotonView>();
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
     }
 
     // Start is called before the first frame update

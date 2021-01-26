@@ -11,6 +11,8 @@ public class AvatarHolder : MonoBehaviour
     public Transform BodyTransform;
     public Transform HandLeftTransform;
     public Transform HandRightTransform;
+    public Transform oculusTouchLeft;
+    public Transform oculusTouchRight;
 
     public GameObject leftHand;
     public GameObject rightHand;

@@ -81,7 +81,9 @@ public class PlayerNetworkSetup : MonoBehaviourPunCallbacks
         SetUpAvatarGameobject(avatarHolder.HeadTransform, avatarInputConverter.AvatarHead);
         SetUpAvatarGameobject(avatarHolder.BodyTransform, avatarInputConverter.AvatarBody);
         SetUpAvatarGameobject(avatarHolder.HandLeftTransform, avatarInputConverter.AvatarHand_Left);
+        SetUpAvatarGameobject(avatarHolder.oculusTouchLeft, avatarInputConverter.AvatarHand_Left);
         SetUpAvatarGameobject(avatarHolder.HandRightTransform, avatarInputConverter.AvatarHand_Right);
+        SetUpAvatarGameobject(avatarHolder.oculusTouchRight, avatarInputConverter.AvatarHand_Right);
     }
 
     void SetUpAvatarGameobject(Transform avatarModelTransform, Transform mainAvatarTransform)
