@@ -2499,7 +2499,7 @@ MonoBehaviour:
       m_Calls: []
   m_CustomReticle: {fileID: 0}
   m_AttachTransform: {fileID: 0}
-  m_AttachEaseInTime: 0.15
+  m_AttachEaseInTime: 0
   m_MovementType: 2
   m_TrackPosition: 1
   m_SmoothPosition: 0
@@ -5384,7 +5384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100038, guid: 4470b2e79e849934cbb5781e7100483b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400038, guid: 4470b2e79e849934cbb5781e7100483b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6322,13 +6322,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049766046}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.26076835, y: 0.6370137, z: 0.33277607, w: 0.64457244}
   m_LocalPosition: {x: 0, y: -0.0489, z: 0}
   m_LocalScale: {x: 0.031522363, y: 0.031522363, z: 0.031522363}
   m_Children: []
   m_Father: {fileID: 582749258}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -49.476, y: 85.372, z: 8.565001}
 --- !u!65 &2049766048
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6349,7 +6349,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049766046}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -9144,7 +9144,12 @@ PrefabInstance:
     - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
       propertyPath: m_OnHoverEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
@@ -9226,12 +9231,52 @@ PrefabInstance:
       propertyPath: m_OnHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 582749252}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHoverExited
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_AttachEaseInTime
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5166931218433738947, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 8acc5af633a26004289d5dae1ae2dcaf,
         type: 2}
+    - target: {fileID: 5166931218433738947, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5166931218433738948, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
       propertyPath: m_Name

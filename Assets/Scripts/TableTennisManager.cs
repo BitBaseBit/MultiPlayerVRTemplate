@@ -13,17 +13,47 @@ public class TableTennisManager : MonoBehaviour
     public Transform rightTransform;
 
     public Rigidbody rb;
+    private bool isHovering = false;
+
+    GameObject selectorAvatar;
+    AvatarHolder selectorHands;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+       if (isHovering)
+       {
+            var distanceRightFromBat = Vector3.Distance(selectorHands.HandRightTransform.position, bat.transform.position);
+            var distanceLeftFromBat = Vector3.Distance(selectorHands.HandLeftTransform.position, bat.transform.position);
+
+            var grabInteractable = GetComponent<XRGrabInteractable>();
+
+            if (distanceRightFromBat < distanceLeftFromBat)
+            {
+                grabInteractable.attachTransform = rightTransform;               
+            }
+            else if (distanceRightFromBat > distanceLeftFromBat)
+            {
+                grabInteractable.attachTransform = leftTransform;
+            }    
+       }
+    }
+
+    public void OnHoverEnter()
+    {
+        selectorAvatar = GameObject.FindGameObjectWithTag("avatar");
+        selectorHands = selectorAvatar.GetComponent<AvatarHolder>();
+        isHovering = true;
+    }
+
+    public void OnHoverExited()
+    {
+        isHovering = false;
     }
 
 
@@ -41,7 +71,6 @@ public class TableTennisManager : MonoBehaviour
 
         if (handEnter == "Right Base Controller")
         {
-            grabInteractable.attachTransform = rightTransform;
             avatarHands.rightHand.SetActive(false);
             avatarHands.leftHand.SetActive(false);
             oculusTouchLeft.SetActive(true);
@@ -49,10 +78,9 @@ public class TableTennisManager : MonoBehaviour
         }
         else if (handEnter == "Left Base Controller")
         {
-            grabInteractable.attachTransform = leftTransform;
             avatarHands.rightHand.SetActive(false);
             avatarHands.leftHand.SetActive(false);
-            oculusTouchLeft.SetActive(false);
+            oculusTouchLeft.SetActive(true);
             oculusTouchRight.SetActive(true); 
         }
     }
