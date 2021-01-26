@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 411362609}
   - component: {fileID: 411362608}
   - component: {fileID: 411362607}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Left Teleport Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,8 +972,8 @@ MonoBehaviour:
   m_AnchorControlDeadzone: 0.75
   m_AnchorControlOffAxisDeadzone: 0.3
   m_ControllerNode: 4
-  m_SelectUsage: 2
-  m_ActivateUsage: 2
+  m_SelectUsage: 6
+  m_ActivateUsage: 6
   m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
   m_RotateAnchorLeft: 16
@@ -1673,7 +1673,7 @@ GameObject:
   - component: {fileID: 669006946}
   - component: {fileID: 669006948}
   - component: {fileID: 669006947}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HandL (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4443,7 +4443,7 @@ GameObject:
   - component: {fileID: 1749184104}
   - component: {fileID: 1749184106}
   - component: {fileID: 1749184105}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Watch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4858,8 +4858,8 @@ MonoBehaviour:
   m_AnchorControlDeadzone: 0.75
   m_AnchorControlOffAxisDeadzone: 0.3
   m_ControllerNode: 5
-  m_SelectUsage: 2
-  m_ActivateUsage: 2
+  m_SelectUsage: 6
+  m_ActivateUsage: 6
   m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
   m_RotateAnchorLeft: 16
@@ -9129,7 +9129,7 @@ PrefabInstance:
     - target: {fileID: 5166931218433738945, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
       propertyPath: m_Mass
-      value: 0.0024
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
@@ -9264,7 +9264,7 @@ PrefabInstance:
     - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
       propertyPath: m_MovementType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5166931218433738947, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
@@ -9275,7 +9275,7 @@ PrefabInstance:
     - target: {fileID: 5166931218433738947, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5166931218433738948, guid: 089d5142d990d0246928293229bb0485,
         type: 3}

@@ -376,7 +376,6 @@ Transform:
   - {fileID: 2014846976094963997}
   - {fileID: 7707281219365999507}
   - {fileID: 4749194479850687299}
-  - {fileID: 447281786560143592}
   m_Father: {fileID: 4384842259494080515}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -391,7 +390,7 @@ GameObject:
   - component: {fileID: 382197374582956499}
   m_Layer: 0
   m_Name: Right Hand
-  m_TagString: Untagged
+  m_TagString: rightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1616,6 +1615,7 @@ Transform:
   - {fileID: 6253989596246458842}
   - {fileID: 3930244237791256524}
   - {fileID: 2665482009458712592}
+  - {fileID: 447281786560143592}
   m_Father: {fileID: 5676525763071324057}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1894,8 +1894,8 @@ MonoBehaviour:
   m_AnchorControlDeadzone: 0.75
   m_AnchorControlOffAxisDeadzone: 0.3
   m_ControllerNode: 4
-  m_SelectUsage: 2
-  m_ActivateUsage: 2
+  m_SelectUsage: 6
+  m_ActivateUsage: 6
   m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
   m_RotateAnchorLeft: 16
@@ -2417,7 +2417,7 @@ GameObject:
   - component: {fileID: 6228142169949220870}
   m_Layer: 0
   m_Name: Left Hand
-  m_TagString: Untagged
+  m_TagString: leftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2635,8 +2635,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5686575337678891632}
-  m_Father: {fileID: 5676525763071324057}
-  m_RootOrder: 4
+  m_Father: {fileID: 4749194479850687299}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7551857309680713284
 MonoBehaviour:
@@ -2661,8 +2661,8 @@ MonoBehaviour:
   m_AnchorControlDeadzone: 0.75
   m_AnchorControlOffAxisDeadzone: 0.3
   m_ControllerNode: 5
-  m_SelectUsage: 2
-  m_ActivateUsage: 2
+  m_SelectUsage: 6
+  m_ActivateUsage: 6
   m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
   m_RotateAnchorLeft: 16
