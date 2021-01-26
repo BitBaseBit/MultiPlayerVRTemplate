@@ -12,8 +12,6 @@ public class TableTennisMulti : MonoBehaviour
 
     GameObject leftParent;
     GameObject rightParent;
-    Transform leftTransform;
-    Transform rightTransform;
 
     private void Awake()
     {

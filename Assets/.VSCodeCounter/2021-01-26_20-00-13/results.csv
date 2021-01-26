@@ -1,0 +1,28 @@
+"filename", "language", "C#", "comment", "blank", "total"
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\Avatar Selection Scripts\AvatarHolder.cs", "C#", 27, 2, 6, 35
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\Avatar Selection Scripts\AvatarSelectionManager.cs", "C#", 91, 12, 29, 132
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\AvatarHands.cs", "C#", 24, 2, 10, 36
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\AvatarInput.cs", "C#", 26, 5, 13, 44
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\ControllerManager.cs", "C#", 240, 80, 45, 365
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\GenericVRPlayerComponents.cs", "C#", 14, 2, 7, 23
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\GetChild.cs", "C#", 12, 2, 5, 19
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\HandSynchronization.cs", "C#", 83, 6, 19, 108
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\HomeRoomManager.cs", "C#", 121, 2, 29, 152
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\InputListener.cs", "C#", 22, 5, 6, 33
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\InputListenerSecondaryButton.cs", "C#", 51, 3, 14, 68
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\LoginManager.cs", "C#", 38, 2, 13, 53
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\LoginUIManager.cs", "C#", 16, 2, 7, 25
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\MovementController.cs", "C#", 49, 4, 19, 72
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\MultiplayerVRConstants.cs", "C#", 7, 0, 5, 12
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\MultiplayerVRSynchronization.cs", "C#", 287, 67, 93, 447
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\NetworkGrabbing.cs", "C#", 69, 2, 13, 84
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\NetworkGrabbingBat.cs", "C#", 103, 2, 19, 124
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\PlayerNetworkSetup.cs", "C#", 74, 5, 15, 94
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\PlayerUIManager.cs", "C#", 14, 1, 4, 19
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\ResetTableTennisDrag.cs", "C#", 6, 0, 3, 9
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\SpawnManger.cs", "C#", 23, 6, 7, 36
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\TableTennisManager.cs", "C#", 76, 2, 21, 99
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\TableTennisMulti.cs", "C#", 55, 2, 14, 71
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\UIManager.cs", "C#", 28, 1, 7, 36
+"d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\VirtualWorldManager.cs", "C#", 36, 4, 12, 52
+"Total", "-", 1592, 221, 435, 2248
