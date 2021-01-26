@@ -2390,8 +2390,6 @@ MonoBehaviour:
   bodyTransform: {fileID: 1006742690213313269}
   leftHandTransform: {fileID: 6228142169949220870}
   rightHandTransform: {fileID: 382197374582956499}
-  leftControllerTransform: {fileID: 4625755875349076456}
-  rightControllerTransform: {fileID: 3930244237791256524}
 --- !u!114 &5240023214673917402
 MonoBehaviour:
   m_ObjectHideFlags: 0
