@@ -2241,7 +2241,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 3
@@ -2385,7 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generalVRPlayerTransform: {fileID: 2100679845327289902}
-  mainAvatarTransform: {fileID: 7156118241034725472}
+  mainAvatarTransform: {fileID: 2424969382104737822}
   headTransform: {fileID: 7156118241034725472}
   bodyTransform: {fileID: 1006742690213313269}
   leftHandTransform: {fileID: 6228142169949220870}
