@@ -11,6 +11,9 @@ TagManager:
   - leftHand
   - rightHand
   - avatar
+  - Bullet
+  - TennisBall
+  - TennisBat
   layers:
   - Default
   - TransparentFX

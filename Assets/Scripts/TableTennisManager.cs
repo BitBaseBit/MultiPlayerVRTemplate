@@ -12,18 +12,12 @@ public class TableTennisManager : MonoBehaviour
     public Transform leftTransform;
     public Transform rightTransform;
 
-    public Rigidbody rb;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
 
