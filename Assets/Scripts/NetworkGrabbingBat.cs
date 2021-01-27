@@ -10,12 +10,10 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
 
     PhotonView photonView;
     Rigidbody rb;
-    public bool isBeingHeld = false;
 
-    public char hand;
+    public static char hand;
     GameObject player;
 
-    public static NetworkGrabbingBat Instance;
 
     GenericVRPlayerComponents components;
 
@@ -28,17 +26,7 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
 
     bool isHovering = false;
 
-    private void Awake()
-    {
-        photonView = GetComponent<PhotonView>();
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
+    public static bool isBeingHeld;
 
     // Start is called before the first frame update
     void Start()

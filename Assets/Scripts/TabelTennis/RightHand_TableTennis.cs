@@ -17,7 +17,7 @@ public class RightHand_TableTennis : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -25,17 +25,17 @@ public class RightHand_TableTennis : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-            if (NetworkGrabbingBat.Instance.isBeingHeld)
+            if (NetworkGrabbingBat.isBeingHeld)
             {
                 photonView.RPC("HideRightHand", RpcTarget.AllBuffered);
                 isHandVisible = false;
             }
-            else if (!NetworkGrabbingBat.Instance.isBeingHeld && !isHandVisible)
+            else if (!NetworkGrabbingBat.isBeingHeld && !isHandVisible)
             {
                 photonView.RPC("ShowRightHand", RpcTarget.AllBuffered);
             }
         }
-        
+
     }
 
     [PunRPC]

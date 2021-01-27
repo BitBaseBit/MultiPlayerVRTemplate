@@ -17,7 +17,7 @@ public class LeftController_TableTennis : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -25,24 +25,24 @@ public class LeftController_TableTennis : MonoBehaviourPun
     {
         if (photonView.IsMine)
         {
-	        if (NetworkGrabbingBat.Instance.isBeingHeld)
-	        {
-	            if(NetworkGrabbingBat.Instance.hand == 'R')
-	            {
-	                photonView.RPC("ShowLeftController", RpcTarget.AllBuffered);
-	                isLeftControllerHidden = false;
-	            }
-	            else if (NetworkGrabbingBat.Instance.hand == 'L')
-	            {
-	                photonView.RPC("HideLeftController", RpcTarget.AllBuffered);
-	                isLeftControllerHidden = true;
-	            }    
-	        }
-	        else if (!isLeftControllerHidden)
-	        {
-	            photonView.RPC("HideLeftController", RpcTarget.AllBuffered);
-	        }
-	        
+            if (NetworkGrabbingBat.isBeingHeld)
+            {
+                if (NetworkGrabbingBat.hand == 'R')
+                {
+                    photonView.RPC("ShowLeftController", RpcTarget.AllBuffered);
+                    isLeftControllerHidden = false;
+                }
+                else if (NetworkGrabbingBat.hand == 'L')
+                {
+                    photonView.RPC("HideLeftController", RpcTarget.AllBuffered);
+                    isLeftControllerHidden = true;
+                }
+            }
+            else if (!isLeftControllerHidden)
+            {
+                photonView.RPC("HideLeftController", RpcTarget.AllBuffered);
+            }
+
         }
     }
 

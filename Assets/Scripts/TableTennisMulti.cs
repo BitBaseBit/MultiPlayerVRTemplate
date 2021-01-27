@@ -18,17 +18,6 @@ public class TableTennisMulti : MonoBehaviour
 
     public static TableTennisMulti Instance;
 
-    private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
-
 
     // Start is called before the first frame update
     void Start()
