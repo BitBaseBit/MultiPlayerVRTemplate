@@ -6,16 +6,29 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class TableTennisMulti : MonoBehaviour
 {
 
-    char hand;
+    public char hand;
+
     GameObject player;
     GenericVRPlayerComponents components;
 
     GameObject leftParent;
     GameObject rightParent;
 
+    public bool isBeingHeld;
+
+    public static TableTennisMulti Instance;
+
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
+        Instance = this;
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +45,7 @@ public class TableTennisMulti : MonoBehaviour
 
     public void OnSelectEnter()
     {
+        isBeingHeld = true;
         player = GameObject.FindWithTag("Player");
         components = player.GetComponent<GenericVRPlayerComponents>();
         var grabInteractable = GetComponent<XRGrabInteractable>();
@@ -59,6 +73,7 @@ public class TableTennisMulti : MonoBehaviour
 
     public void OnSelectExit()
     {
+        isBeingHeld = false;
         player = GameObject.FindWithTag("Player");
         components = player.GetComponent<GenericVRPlayerComponents>();
 

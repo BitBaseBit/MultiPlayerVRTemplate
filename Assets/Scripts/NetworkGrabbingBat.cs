@@ -12,10 +12,10 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
     Rigidbody rb;
     public bool isBeingHeld = false;
 
-    char hand;
+    public char hand;
     GameObject player;
 
-    NetworkGrabbingBat Instance;
+    public static NetworkGrabbingBat Instance;
 
     GenericVRPlayerComponents components;
 
@@ -27,7 +27,6 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
     public Transform rightTransform;
 
     bool isHovering = false;
-    bool isHolding = false;
 
     private void Awake()
     {
@@ -125,43 +124,25 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
     [PunRPC]
     public void StartNetworkGrabbing()
     {
-        isBeingHeld = true;
 
-        player = GameObject.FindWithTag("Player");
-        components = player.GetComponent<GenericVRPlayerComponents>();
         var grabInteractable = GetComponent<XRGrabInteractable>();
         string handEnter = grabInteractable.selectingInteractor.name;
 
         if (handEnter == "Right Base Controller")
         {
-
             hand = 'R';
-            leftParent.SetActive(false);
-            rightParent.SetActive(false);
-            components.oculusTouchLeft.SetActive(true);
-            components.oculusTouchRight.SetActive(false);
         }
         else if (handEnter == "Left Base Controller")
         {
             hand = 'L';
-            leftParent.SetActive(false);
-            rightParent.SetActive(false);
-            components.oculusTouchLeft.SetActive(false);
-            components.oculusTouchRight.SetActive(true);
-
         }
+
+        isBeingHeld = true;
     }
 
     [PunRPC]
     public void StopNetworkGrabbing()
     {
         isBeingHeld = false;
-        player = GameObject.FindWithTag("Player");
-        components = player.GetComponent<GenericVRPlayerComponents>();
-
-        leftParent.SetActive(true);
-        rightParent.SetActive(true);
-        components.oculusTouchLeft.SetActive(false);
-        components.oculusTouchRight.SetActive(false);
     }
 }
