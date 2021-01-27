@@ -17,6 +17,7 @@ public class AvatarHolder : MonoBehaviour
     public GameObject leftHand;
     public GameObject rightHand;
 
+
     private void Start()
     {
         //Setting the layer of avatar head to AvatarLocalHead layer so that it does not block the view of the local VR Player

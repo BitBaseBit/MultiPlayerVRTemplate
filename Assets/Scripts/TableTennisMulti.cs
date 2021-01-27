@@ -16,7 +16,6 @@ public class TableTennisMulti : MonoBehaviour
 
     public bool isBeingHeld;
 
-    public static TableTennisMulti Instance;
 
 
     // Start is called before the first frame update

@@ -31,6 +31,7 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
     // Start is called before the first frame update
     void Start()
     {
+        photonView = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody>(); 
         leftParent = GameObject.FindGameObjectWithTag("leftHand");
         rightParent = GameObject.FindGameObjectWithTag("rightHand");
@@ -67,6 +68,17 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
         }
     }
 
+    [PunRPC]
+    public void StartNetworkGrabbing()
+    {
+        isBeingHeld = true;
+    }
+
+    [PunRPC]
+    public void StopNetworkGrabbing()
+    {
+        isBeingHeld = false;
+    }
     public void OnHoverEnter()
     {
         isHovering = true;
@@ -109,28 +121,4 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
     {
     }
 
-    [PunRPC]
-    public void StartNetworkGrabbing()
-    {
-
-        var grabInteractable = GetComponent<XRGrabInteractable>();
-        string handEnter = grabInteractable.selectingInteractor.name;
-
-        if (handEnter == "Right Base Controller")
-        {
-            hand = 'R';
-        }
-        else if (handEnter == "Left Base Controller")
-        {
-            hand = 'L';
-        }
-
-        isBeingHeld = true;
-    }
-
-    [PunRPC]
-    public void StopNetworkGrabbing()
-    {
-        isBeingHeld = false;
-    }
 }

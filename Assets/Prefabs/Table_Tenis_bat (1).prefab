@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5166931218433738945}
   - component: {fileID: 5166931218433738946}
   - component: {fileID: 5166931218433738947}
-  - component: {fileID: 990475168434796919}
   m_Layer: 8
   m_Name: Table_Tenis_bat (1)
   m_TagString: Untagged
@@ -177,7 +176,6 @@ MonoBehaviour:
   m_ThrowAngularVelocityScale: 1
   m_GravityOnDetach: 0
   m_RetainTransformParent: 1
-  m_SelectingInteractor: {fileID: 0}
 --- !u!64 &5166931218433738947
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -192,18 +190,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 5d1bd3057182ce244bc22af55968c421, type: 3}
---- !u!114 &990475168434796919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5166931218433738948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b886900735f5b64a83286cef2508c0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5166931218598200006
 GameObject:
   m_ObjectHideFlags: 0

@@ -106,7 +106,6 @@ GameObject:
   - component: {fileID: 7149234000592251514}
   - component: {fileID: 7149234000590058687}
   - component: {fileID: 7149234000590058685}
-  - component: {fileID: 7149234000590058663}
   - component: {fileID: 7149234000590058681}
   - component: {fileID: 4875933861551230152}
   - component: {fileID: -1353901731969368983}
@@ -209,18 +208,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 5d1bd3057182ce244bc22af55968c421, type: 3}
---- !u!114 &7149234000590058663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7149234000590058672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b886900735f5b64a83286cef2508c0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7149234000590058681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +240,7 @@ MonoBehaviour:
   m_OnSelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7149234000590058663}
+      - m_Target: {fileID: 0}
         m_MethodName: OnSelectEnter
         m_Mode: 1
         m_Arguments:
@@ -267,7 +254,7 @@ MonoBehaviour:
   m_OnSelectExited:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7149234000590058663}
+      - m_Target: {fileID: 0}
         m_MethodName: OnSelectExit
         m_Mode: 1
         m_Arguments:
