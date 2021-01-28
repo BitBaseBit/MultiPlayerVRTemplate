@@ -262,6 +262,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             {
                 leftHandTransform.gameObject.SetActive(true);
                 rightHandTransform.gameObject.SetActive(true);
+                Debug.Log("GOT TO ISLEFTHANDACTIVE");
             }    
             else if (isLeftControllerActive)
             {
