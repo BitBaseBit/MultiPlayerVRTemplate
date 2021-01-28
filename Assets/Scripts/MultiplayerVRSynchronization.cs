@@ -158,12 +158,8 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
         m_NetworkPosition_RightHand = Vector3.zero;
         m_NetworkRotation_RightHand = Quaternion.identity;
 
-    }
 
-    public void Start()
-    {
         while (!PlayerNetworkSetup.hasActivated) continue;
-
 
         // Right Controller sync init
         rightControllerTransform = rightHandTransform.GetChild(1).transform;
@@ -177,7 +173,27 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
         m_StoredPosition_LeftController = leftControllerTransform.localPosition;
         m_NetworkPosition_LeftController = Vector3.zero;
         m_NetworkRotation_LeftController = Quaternion.identity;
+
     }
+
+    //public void Start()
+    //{
+    //    while (!PlayerNetworkSetup.hasActivated) continue;
+
+
+    //    // Right Controller sync init
+    //    rightControllerTransform = rightHandTransform.GetChild(1).transform;
+    //    rightController = rightControllerTransform.gameObject;
+    //    m_StoredPosition_RightController = rightHandTransform.localPosition;
+    //    m_NetworkPosition_RightController = Vector3.zero;
+    //    m_NetworkRotation_RightController = Quaternion.identity;
+
+    //    leftControllerTransform = leftHandTransform.GetChild(1).transform;
+    //    leftController = leftControllerTransform.gameObject;
+    //    m_StoredPosition_LeftController = leftControllerTransform.localPosition;
+    //    m_NetworkPosition_LeftController = Vector3.zero;
+    //    m_NetworkRotation_LeftController = Quaternion.identity;
+    //}
 
     void OnEnable()
     {
@@ -226,6 +242,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             } 
             else if(isRightControllerActive)
             {
+                Debug.Log("Got HERE: Right Controller Active!!!!!");
                 rightController.SetActive(true);
                 leftHandTransform.gameObject.SetActive(false);
                 rightHandTransform.gameObject.SetActive(false);
