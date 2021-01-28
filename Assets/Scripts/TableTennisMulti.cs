@@ -8,9 +8,6 @@ public class TableTennisMulti : MonoBehaviour
 
     public char hand;
 
-    GameObject player;
-    GenericVRPlayerComponents components;
-
     GameObject leftParent;
     GameObject rightParent;
 
@@ -34,8 +31,7 @@ public class TableTennisMulti : MonoBehaviour
     public void OnSelectEnter()
     {
         isBeingHeld = true;
-        player = GameObject.FindWithTag("Player");
-        components = player.GetComponent<GenericVRPlayerComponents>();
+
         var grabInteractable = GetComponent<XRGrabInteractable>();
         string handEnter = grabInteractable.selectingInteractor.name;
 
@@ -43,33 +39,32 @@ public class TableTennisMulti : MonoBehaviour
         {
 
             hand = 'R';
-            leftParent.SetActive(false);
-            Debug.Log(leftParent.transform.GetChild(1).name);
-            rightParent.SetActive(false);
-            components.oculusTouchLeft.SetActive(true);
-            components.oculusTouchRight.SetActive(false);
+            leftParent.transform.GetChild(0).gameObject.SetActive(false);
+            rightParent.transform.GetChild(0).gameObject.SetActive(false);
+
+            rightParent.transform.GetChild(1).gameObject.SetActive(false);
+            leftParent.transform.GetChild(1).gameObject.SetActive(true);
+
         }
         else if (handEnter == "Left Base Controller")
         {
             hand = 'L';
-            leftParent.SetActive(false);
-            Debug.Log(leftParent.transform.GetChild(1).name);
-            rightParent.SetActive(false);
-            components.oculusTouchLeft.SetActive(false);
-            components.oculusTouchRight.SetActive(true); 
+            leftParent.transform.GetChild(0).gameObject.SetActive(false);
+            rightParent.transform.GetChild(0).gameObject.SetActive(false);
 
+            rightParent.transform.GetChild(1).gameObject.SetActive(true);
+            leftParent.transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 
     public void OnSelectExit()
     {
         isBeingHeld = false;
-        player = GameObject.FindWithTag("Player");
-        components = player.GetComponent<GenericVRPlayerComponents>();
 
-        leftParent.SetActive(true);
-        rightParent.SetActive(true);
-        components.oculusTouchLeft.SetActive(false);
-        components.oculusTouchRight.SetActive(false);
+        leftParent.transform.GetChild(0).gameObject.SetActive(true);
+        rightParent.transform.GetChild(0).gameObject.SetActive(true);
+
+        rightParent.transform.GetChild(1).gameObject.SetActive(false);
+        leftParent.transform.GetChild(1).gameObject.SetActive(false);
     }
 }
