@@ -12,6 +12,8 @@ public class PlayerNetworkSetup : MonoBehaviourPunCallbacks
     public GameObject avatarBodyGameObj;
     public GameObject[] AvatarModelPrefabs;
 
+    public static bool hasActivated;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +40,12 @@ public class PlayerNetworkSetup : MonoBehaviourPunCallbacks
 
             if (teleportationAreas.Length > 0)
             {
-                Debug.Log("we have a floot to teleport on ");
-
                 foreach ( var item in teleportationAreas)
                 {
                     item.teleportationProvider = localXRRigGameObj.GetComponent<TeleportationProvider>();
                 }
             }
+            hasActivated = true;
         }
         else
         {

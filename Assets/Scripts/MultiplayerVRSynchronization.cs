@@ -152,23 +152,31 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
         m_NetworkRotation_LeftHand = Quaternion.identity;
 
         // Left Controller sync Init
+
+        //Right Hand Synch Init
+        m_StoredPosition_RightHand = rightHandTransform.localPosition;
+        m_NetworkPosition_RightHand = Vector3.zero;
+        m_NetworkRotation_RightHand = Quaternion.identity;
+
+    }
+
+    public void Start()
+    {
+        while (!PlayerNetworkSetup.hasActivated) continue;
+
+
+        // Right Controller sync init
+        rightControllerTransform = rightHandTransform.GetChild(1).transform;
+        rightController = rightControllerTransform.gameObject;
+        m_StoredPosition_RightController = rightHandTransform.localPosition;
+        m_NetworkPosition_RightController = Vector3.zero;
+        m_NetworkRotation_RightController = Quaternion.identity;
+
         leftControllerTransform = leftHandTransform.GetChild(1).transform;
         leftController = leftControllerTransform.gameObject;
         m_StoredPosition_LeftController = leftControllerTransform.localPosition;
         m_NetworkPosition_LeftController = Vector3.zero;
         m_NetworkRotation_LeftController = Quaternion.identity;
-
-        //Right Hand Synch Init
-        rightControllerTransform = rightHandTransform.GetChild(1).transform;
-        rightController = rightControllerTransform.gameObject;
-        m_StoredPosition_RightHand = rightHandTransform.localPosition;
-        m_NetworkPosition_RightHand = Vector3.zero;
-        m_NetworkRotation_RightHand = Quaternion.identity;
-
-        // Right Controller sync init
-        m_StoredPosition_RightController = rightHandTransform.localPosition;
-        m_NetworkPosition_RightController = Vector3.zero;
-        m_NetworkRotation_RightController = Quaternion.identity;
     }
 
     void OnEnable()
