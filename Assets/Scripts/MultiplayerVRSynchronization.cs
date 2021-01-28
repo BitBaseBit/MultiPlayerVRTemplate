@@ -134,7 +134,6 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
 
     public void Start()
     {
-        while (!PlayerNetworkSetup.hasActivated) continue;
 
         //Main VRPlayer Synch Init
         m_StoredPosition_GeneralVRPlayer = generalVRPlayerTransform.position;
