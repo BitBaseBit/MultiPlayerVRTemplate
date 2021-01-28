@@ -306,7 +306,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             stream.SendNext(leftControllerTransform.localRotation);
             // if left Controller is active
             stream.SendNext(leftController.activeSelf);
-            stream.SendNext("From sending stream (leftcontroller.activeSelf: " + leftController.activeSelf);
+            Debug.Log("From sending stream (leftcontroller.activeSelf: " + leftController.activeSelf);
 
             //Right Hand
             //Send Right Hand position data
