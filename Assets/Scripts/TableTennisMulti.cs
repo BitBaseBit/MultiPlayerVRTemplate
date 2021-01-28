@@ -44,6 +44,7 @@ public class TableTennisMulti : MonoBehaviour
 
             hand = 'R';
             leftParent.SetActive(false);
+            Debug.Log(leftParent.transform.GetChild(1).name);
             rightParent.SetActive(false);
             components.oculusTouchLeft.SetActive(true);
             components.oculusTouchRight.SetActive(false);
@@ -52,6 +53,7 @@ public class TableTennisMulti : MonoBehaviour
         {
             hand = 'L';
             leftParent.SetActive(false);
+            Debug.Log(leftParent.transform.GetChild(1).name);
             rightParent.SetActive(false);
             components.oculusTouchLeft.SetActive(false);
             components.oculusTouchRight.SetActive(true); 

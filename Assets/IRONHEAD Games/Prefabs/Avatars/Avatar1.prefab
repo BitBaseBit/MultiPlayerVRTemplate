@@ -453,8 +453,8 @@ MonoBehaviour:
   HandRightTransform: {fileID: 8661541236934701390}
   oculusTouchLeft: {fileID: 4887862986559543378}
   oculusTouchRight: {fileID: 6012050393950437797}
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
+  leftHand: {fileID: 100038, guid: 4470b2e79e849934cbb5781e7100483b, type: 3}
+  rightHand: {fileID: 100044, guid: 47b4082d2994ed045925b7ff6c245fb5, type: 3}
 --- !u!1 &6891889006077643999
 GameObject:
   m_ObjectHideFlags: 0

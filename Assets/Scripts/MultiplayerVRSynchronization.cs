@@ -152,11 +152,15 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
         m_NetworkRotation_LeftHand = Quaternion.identity;
 
         // Left Controller sync Init
+        leftControllerTransform = leftHandTransform.GetChild(1).transform;
+        leftController = leftControllerTransform.gameObject;
         m_StoredPosition_LeftController = leftControllerTransform.localPosition;
         m_NetworkPosition_LeftController = Vector3.zero;
         m_NetworkRotation_LeftController = Quaternion.identity;
 
         //Right Hand Synch Init
+        rightControllerTransform = rightHandTransform.GetChild(1).transform;
+        rightController = rightControllerTransform.gameObject;
         m_StoredPosition_RightHand = rightHandTransform.localPosition;
         m_NetworkPosition_RightHand = Vector3.zero;
         m_NetworkRotation_RightHand = Quaternion.identity;
@@ -453,7 +457,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             this.m_NetworkRotation_LeftController = (Quaternion)stream.ReceiveNext();
             isLeftControllerActive = (bool)stream.ReceiveNext();
             Debug.Log("Recieving stream: isLeftControllerActive " + isLeftControllerActive);
-            this.leftController.SetActive(isLeftControllerActive);
+            this.leftController.SetActive(true);
             if (m_firstTake)
             {
                 this.m_Angle_LeftController = 0f;

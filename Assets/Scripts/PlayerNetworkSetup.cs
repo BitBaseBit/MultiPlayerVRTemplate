@@ -78,10 +78,15 @@ public class PlayerNetworkSetup : MonoBehaviourPunCallbacks
 
         AvatarInput avatarInputConverter = transform.GetComponent<AvatarInput>();
         AvatarHolder avatarHolder = selectedAvatarGameobject.GetComponent<AvatarHolder>();
+
         SetUpAvatarGameobject(avatarHolder.HeadTransform, avatarInputConverter.AvatarHead);
         SetUpAvatarGameobject(avatarHolder.BodyTransform, avatarInputConverter.AvatarBody);
+
         SetUpAvatarGameobject(avatarHolder.HandLeftTransform, avatarInputConverter.AvatarHand_Left);
         SetUpAvatarGameobject(avatarHolder.HandRightTransform, avatarInputConverter.AvatarHand_Right);
+
+        SetUpAvatarGameobject(avatarHolder.oculusTouchRight, avatarInputConverter.AvatarHand_Right);
+        SetUpAvatarGameobject(avatarHolder.oculusTouchLeft, avatarInputConverter.AvatarHand_Left);
     }
 
     void SetUpAvatarGameobject(Transform avatarModelTransform, Transform mainAvatarTransform)
