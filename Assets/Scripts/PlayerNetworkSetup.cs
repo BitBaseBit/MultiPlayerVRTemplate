@@ -15,7 +15,7 @@ public class PlayerNetworkSetup : MonoBehaviourPunCallbacks
     public static bool hasActivated;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (photonView.IsMine)
         {

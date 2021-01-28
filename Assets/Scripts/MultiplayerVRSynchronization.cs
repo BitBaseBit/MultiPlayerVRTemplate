@@ -130,6 +130,12 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     {
         m_PhotonView = GetComponent<PhotonView>();
 
+    }
+
+    public void Start()
+    {
+        while (!PlayerNetworkSetup.hasActivated) continue;
+
         //Main VRPlayer Synch Init
         m_StoredPosition_GeneralVRPlayer = generalVRPlayerTransform.position;
         m_NetworkPosition_GeneralVRPlayer = Vector3.zero;
@@ -159,12 +165,11 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
         m_NetworkRotation_RightHand = Quaternion.identity;
 
 
-        while (!PlayerNetworkSetup.hasActivated) continue;
 
         // Right Controller sync init
         rightControllerTransform = rightHandTransform.GetChild(1).transform;
         rightController = rightControllerTransform.gameObject;
-        m_StoredPosition_RightController = rightHandTransform.localPosition;
+        m_StoredPosition_RightController = rightControllerTransform.localPosition;
         m_NetworkPosition_RightController = Vector3.zero;
         m_NetworkRotation_RightController = Quaternion.identity;
 
@@ -174,26 +179,8 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
         m_NetworkPosition_LeftController = Vector3.zero;
         m_NetworkRotation_LeftController = Quaternion.identity;
 
+
     }
-
-    //public void Start()
-    //{
-    //    while (!PlayerNetworkSetup.hasActivated) continue;
-
-
-    //    // Right Controller sync init
-    //    rightControllerTransform = rightHandTransform.GetChild(1).transform;
-    //    rightController = rightControllerTransform.gameObject;
-    //    m_StoredPosition_RightController = rightHandTransform.localPosition;
-    //    m_NetworkPosition_RightController = Vector3.zero;
-    //    m_NetworkRotation_RightController = Quaternion.identity;
-
-    //    leftControllerTransform = leftHandTransform.GetChild(1).transform;
-    //    leftController = leftControllerTransform.gameObject;
-    //    m_StoredPosition_LeftController = leftControllerTransform.localPosition;
-    //    m_NetworkPosition_LeftController = Vector3.zero;
-    //    m_NetworkRotation_LeftController = Quaternion.identity;
-    //}
 
     void OnEnable()
     {
