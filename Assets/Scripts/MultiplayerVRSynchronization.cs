@@ -126,6 +126,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     bool isLeftControllerActive = false;
     bool isRightControllerActive = false;
 
+
     public void Awake()
     {
         m_PhotonView = GetComponent<PhotonView>();
