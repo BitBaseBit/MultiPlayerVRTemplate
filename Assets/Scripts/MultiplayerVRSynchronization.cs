@@ -196,7 +196,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
                 rightHandTransform.localRotation = Quaternion.RotateTowards(rightHandTransform.localRotation, this.m_NetworkRotation_RightHand, this.m_Angle_RightHand * (1.0f / PhotonNetwork.SerializationRate));
             }    
 
-            if (isLeftControllerActive)
+            if (leftController.activeSelf)
             {
                 Debug.Log("Got Here: left Controller Active");
                 leftController.SetActive(true);
@@ -204,7 +204,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
 	            leftControllerTransform.localRotation = Quaternion.RotateTowards(leftControllerTransform.localRotation, this.m_NetworkRotation_LeftController, this.m_Angle_LeftController * (1.0f / PhotonNetwork.SerializationRate));
             }
 
-            if (isRightControllerActive)
+            if (rightController.activeSelf)
             {
                 Debug.Log("Got Here: right Controller Active");
                 rightController.SetActive(true);
@@ -311,6 +311,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             //Send Right Controller rotation data
             stream.SendNext(rightControllerTransform.localRotation);
             stream.SendNext(rightController.activeSelf);
+            Debug.Log("From Writer, the value of rightcontroller.activeSelf: " + rightController.activeSelf);
            
         }
         else
@@ -458,7 +459,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             //Get Left Controller rotation data
             this.m_NetworkRotation_LeftController = (Quaternion)stream.ReceiveNext();
             isLeftControllerActive = (bool)stream.ReceiveNext();
-            Debug.Log("Recieving stream:" + isLeftControllerActive);
+            Debug.Log("Recieving stream: isLeftControllerActive " + isLeftControllerActive);
             this.leftController.SetActive(isLeftControllerActive);
             if (m_firstTake)
             {
