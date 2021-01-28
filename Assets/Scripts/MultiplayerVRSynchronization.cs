@@ -258,6 +258,9 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             rightControllerTransform.localPosition = Vector3.MoveTowards(rightControllerTransform.localPosition, this.m_NetworkPosition_RightController, this.m_Distance_RightController * (1.0f / PhotonNetwork.SerializationRate));
             rightControllerTransform.localRotation = Quaternion.RotateTowards(rightControllerTransform.localRotation, this.m_NetworkRotation_RightController, this.m_Angle_RightController * (1.0f / PhotonNetwork.SerializationRate));
 
+            Debug.Log("rightController.activeSelf from other player: " + rightController.activeSelf);
+            Debug.Log("leftController.activeSelf from other player: " + leftController.activeSelf);
+
             if (isLeftHandActive)
             {
                 leftHandTransform.gameObject.SetActive(true);
