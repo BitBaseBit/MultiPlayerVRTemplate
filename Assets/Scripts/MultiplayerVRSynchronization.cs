@@ -71,7 +71,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     private Transform rightControllerTransform;
 
     //Left Hand Sync
-    private GameObject leftController;
+    public GameObject leftController;
     //Position Hand
     private float m_Distance_LeftHand;
     private Vector3 m_Direction_LeftHand;
@@ -131,6 +131,51 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     {
         m_PhotonView = GetComponent<PhotonView>();
 
+
+        ////Main VRPlayer Synch Init
+        //m_StoredPosition_GeneralVRPlayer = generalVRPlayerTransform.position;
+        //m_NetworkPosition_GeneralVRPlayer = Vector3.zero;
+        //m_NetworkRotation_GeneralVRPlayer = Quaternion.identity;
+
+        ////Main Avatar Synch Init
+        //m_StoredPosition_MainAvatar = mainAvatarTransform.localPosition;
+        //m_NetworkPosition_MainAvatar = Vector3.zero;
+        //m_NetworkRotation_MainAvatar = Quaternion.identity;
+
+        ////Head Synch Init
+        //m_NetworkRotation_Head = Quaternion.identity;
+
+        ////Body Synch Init
+        //m_NetworkRotation_Body = Quaternion.identity;
+
+        ////Left Hand Synch Init
+        //m_StoredPosition_LeftHand = leftHandTransform.localPosition;
+        //m_NetworkPosition_LeftHand = Vector3.zero;
+        //m_NetworkRotation_LeftHand = Quaternion.identity;
+
+        //// Left Controller sync Init
+
+        ////Right Hand Synch Init
+        //m_StoredPosition_RightHand = rightHandTransform.localPosition;
+        //m_NetworkPosition_RightHand = Vector3.zero;
+        //m_NetworkRotation_RightHand = Quaternion.identity;
+
+
+
+        //// Right Controller sync init
+
+        //rightControllerTransform = rightHandTransform.GetChild(1).transform;
+        //rightController = rightControllerTransform.gameObject;
+        //m_StoredPosition_RightController = rightControllerTransform.localPosition;
+        //m_NetworkPosition_RightController = Vector3.zero;
+        //m_NetworkRotation_RightController = Quaternion.identity;
+
+        //leftControllerTransform = leftHandTransform.GetChild(1).transform;
+        //leftController = leftControllerTransform.gameObject;
+        //m_StoredPosition_LeftController = leftControllerTransform.localPosition;
+        //m_NetworkPosition_LeftController = Vector3.zero;
+        //m_NetworkRotation_LeftController = Quaternion.identity;
+
     }
 
     public void Start()
@@ -175,11 +220,10 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
 
         leftControllerTransform = leftHandTransform.GetChild(1).transform;
         leftController = leftControllerTransform.gameObject;
+        Debug.Log(leftControllerTransform.gameObject.name);
         m_StoredPosition_LeftController = leftControllerTransform.localPosition;
         m_NetworkPosition_LeftController = Vector3.zero;
         m_NetworkRotation_LeftController = Quaternion.identity;
-
-
     }
 
     void OnEnable()
@@ -468,9 +512,11 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
 
             this.m_NetworkPosition_LeftController = (Vector3)stream.ReceiveNext();
             this.m_Direction_LeftController = (Vector3)stream.ReceiveNext();
+            Debug.Log("From line 515: " + this.m_NetworkPosition_LeftController);
 
             if (m_firstTake)
             {
+                Debug.Log("From Line 519: " + leftControllerTransform.gameObject.name);
                 leftControllerTransform.localPosition = this.m_NetworkPosition_LeftController;
                 this.m_Distance_LeftController = 0f;
             }
