@@ -67,7 +67,7 @@ public class TTBat1 : MonoBehaviour
 
         string handEnter = grabInteractable.selectingInteractor.name;
 
-        bat1View = grabInteractable.transform.root.gameObject.GetComponent<PhotonView>();
+        bat1View = grabInteractable.selectingInteractor.transform.root.gameObject.GetComponent<PhotonView>();
         bat1ViewInit = true;
 
         if (handEnter == "Right Base Controller")

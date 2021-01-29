@@ -28,11 +28,15 @@ public class TennisHands : MonoBehaviourPunCallbacks
                 case 'L':
                     // 2
                     Debug.Log("Got to 2");
+                    Debug.Log(TTBat1.bat1View);
+                    Debug.Log(photonView);
                     photonView.RPC("ShowRightController", RpcTarget.AllBuffered);
                     break;
                 case 'R':
                     //3
                     Debug.Log("Got to 3");
+                    Debug.Log(TTBat1.bat1View);
+                    Debug.Log(photonView);
                     photonView.RPC("ShowLeftController", RpcTarget.AllBuffered);
                     break;
                 default:

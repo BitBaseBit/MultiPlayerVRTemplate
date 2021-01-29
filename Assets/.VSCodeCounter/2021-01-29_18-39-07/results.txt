@@ -1,0 +1,56 @@
+Date : 2021-01-29 18:39:07
+Directory : d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts
+Total : 30 files,  1852 codes, 318 comments, 536 blanks, all 2706 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |         30 |      1,852 |        318 |        536 |      2,706 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                               | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                  |         30 |      1,852 |        318 |        536 |      2,706 |
+| Avatar Selection Scripts                                                                                           |          2 |        120 |         14 |         36 |        170 |
+| TabelTennis                                                                                                        |          3 |        207 |         43 |         46 |        296 |
++--------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                           | language | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\Avatar Selection Scripts\AvatarHolder.cs           | C#       |         29 |          2 |          7 |         38 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\Avatar Selection Scripts\AvatarSelectionManager.cs | C#       |         91 |         12 |         29 |        132 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\AvatarHands.cs                                     | C#       |         24 |          2 |         10 |         36 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\AvatarInput.cs                                     | C#       |         26 |          5 |         13 |         44 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\ControllerManager.cs                               | C#       |        240 |         80 |         45 |        365 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\GenericVRPlayerComponents.cs                       | C#       |         14 |          2 |          7 |         23 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\GetChild.cs                                        | C#       |         12 |          2 |          5 |         19 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\HandSynchronization.cs                             | C#       |         83 |          6 |         19 |        108 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\HomeRoomManager.cs                                 | C#       |        121 |          2 |         29 |        152 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\InputListener.cs                                   | C#       |         22 |          5 |          6 |         33 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\InputListenerSecondaryButton.cs                    | C#       |         51 |          3 |         14 |         68 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\LoginManager.cs                                    | C#       |         38 |          2 |         13 |         53 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\LoginUIManager.cs                                  | C#       |         16 |          2 |          7 |         25 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\MovementController.cs                              | C#       |         49 |          4 |         19 |         72 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\MultiplayerVRConstants.cs                          | C#       |          7 |          0 |          5 |         12 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\MultiplayerVRSynchronization.cs                    | C#       |        331 |        119 |        131 |        581 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\NetworkGrabbing.cs                                 | C#       |         69 |          2 |         13 |         84 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\NetworkGrabbingBat.cs                              | C#       |        100 |          2 |         23 |        125 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\PlayerNetworkSetup.cs                              | C#       |         77 |          5 |         18 |        100 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\PlayerUIManager.cs                                 | C#       |         14 |          1 |          4 |         19 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\ResetTableTennisDrag.cs                            | C#       |          6 |          0 |          3 |          9 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\SpawnManger.cs                                     | C#       |         23 |          6 |          7 |         36 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\SwitchHandOnBatGrab.cs                             | C#       |         14 |          2 |          6 |         22 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\TabelTennis\TTBat1.cs                              | C#       |         56 |         16 |         17 |         89 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\TabelTennis\TTBat2.cs                              | C#       |         57 |         16 |         16 |         89 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\TabelTennis\TennisHands.cs                         | C#       |         94 |         11 |         13 |        118 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\TableTennisManager.cs                              | C#       |         76 |          2 |         21 |         99 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\TableTennisMulti.cs                                | C#       |         48 |          2 |         17 |         67 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\UIManager.cs                                       | C#       |         28 |          1 |          7 |         36 |
+| d:\dev\Unity\Udemy\MultiPlayer\MultiPlayerVRGame\Assets\Scripts\VirtualWorldManager.cs                             | C#       |         36 |          4 |         12 |         52 |
+| Total                                                                                                              |          |      1,852 |        318 |        536 |      2,706 |
++--------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

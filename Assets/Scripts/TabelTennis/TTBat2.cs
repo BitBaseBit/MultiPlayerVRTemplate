@@ -66,7 +66,7 @@ public class TTBat2 : MonoBehaviour
         leftParent = root.transform.GetChild(2).GetChild(1).gameObject;
         rightParent = root.transform.GetChild(2).GetChild(2).gameObject;
 
-        bat2View = grabInteractable.transform.root.gameObject.GetComponent<PhotonView>();
+        bat2View = grabInteractable.selectingInteractor.transform.root.gameObject.GetComponent<PhotonView>();
         bat2ViewInit = true;
 
         string handEnter = grabInteractable.selectingInteractor.name;
