@@ -26,7 +26,7 @@ public class NetworkGrabbingBat : MonoBehaviourPunCallbacks, IPunOwnershipCallba
 
     bool isHovering = false;
 
-    public static bool isBeingHeld;
+    public bool isBeingHeld;
 
     // Start is called before the first frame update
     void Start()

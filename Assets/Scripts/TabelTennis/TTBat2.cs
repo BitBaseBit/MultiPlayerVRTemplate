@@ -10,8 +10,8 @@ public class TTBat2 : MonoBehaviour
     public Transform rightTransform;
     public GameObject bat;
 
-    GameObject leftParent;
-    GameObject rightParent;
+    public static GameObject leftParent;
+    public static GameObject rightParent;
 
     public static PhotonView bat2View;
     public static int batID = 2;

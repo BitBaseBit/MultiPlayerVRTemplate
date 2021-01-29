@@ -10,8 +10,8 @@ public class TTBat1 : MonoBehaviour
     public Transform rightTransform;
     public GameObject bat;
 
-    GameObject leftParent;
-    GameObject rightParent;
+    public static GameObject leftParent;
+    public static GameObject rightParent;
 
     public static int batID = 1;
     public static bool isHovering = false;
