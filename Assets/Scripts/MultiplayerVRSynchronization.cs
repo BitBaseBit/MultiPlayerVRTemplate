@@ -261,27 +261,6 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             Debug.Log("rightController.activeSelf from other player: " + rightController.activeSelf);
             Debug.Log("leftController.activeSelf from other player: " + leftController.activeSelf);
 
-            if (isLeftHandActive)
-            {
-                leftHandTransform.gameObject.SetActive(true);
-                rightHandTransform.gameObject.SetActive(true);
-                Debug.Log("GOT TO ISLEFTHANDACTIVE");
-            }    
-            else if (isLeftControllerActive)
-            {
-                Debug.Log("Got Here: left Controller Active!!!");
-                leftController.SetActive(true);
-
-                leftHandTransform.gameObject.SetActive(false);
-                rightHandTransform.gameObject.SetActive(false);
-            } 
-            else if(isRightControllerActive)
-            {
-                Debug.Log("Got HERE: Right Controller Active!!!!!");
-                rightController.SetActive(true);
-                leftHandTransform.gameObject.SetActive(false);
-                rightHandTransform.gameObject.SetActive(false);
-            }
         }
     }
 

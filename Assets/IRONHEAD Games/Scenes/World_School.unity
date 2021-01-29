@@ -1780,7 +1780,7 @@ GameObject:
   - component: {fileID: 1031447711}
   - component: {fileID: 1031447710}
   - component: {fileID: 1031447709}
-  - component: {fileID: 1031447708}
+  - component: {fileID: 1031447718}
   m_Layer: 8
   m_Name: Table_Tenis_bat (1)
   m_TagString: Untagged
@@ -1788,20 +1788,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1031447708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031447707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b886900735f5b64a83286cef2508c0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hand: 0
-  isBeingHeld: 0
 --- !u!114 &1031447709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1890,10 +1876,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1031447718}
+        m_MethodName: OnHoverEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnHoverExited:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1031447709}
+        m_MethodName: OnHoverExited
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1031447718}
         m_MethodName: OnHoverExited
         m_Mode: 1
         m_Arguments:
@@ -1921,7 +1929,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1031447708}
+      - m_Target: {fileID: 1031447718}
         m_MethodName: OnSelectEnter
         m_Mode: 1
         m_Arguments:
@@ -1946,8 +1954,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1031447708}
-        m_MethodName: OnSelectExit
+      - m_Target: {fileID: 1031447718}
+        m_MethodName: OnHoverExited
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2092,6 +2100,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -76.22, y: 0, z: 0}
+--- !u!114 &1031447718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1031447707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabfc5f2c6a6db54cab72689ad64f8e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftTransform: {fileID: 360917084}
+  rightTransform: {fileID: 461349979}
+  bat: {fileID: 1031447707}
 --- !u!1 &1085803925
 GameObject:
   m_ObjectHideFlags: 0
@@ -6867,7 +6890,7 @@ GameObject:
   - component: {fileID: 8851682564418496799}
   - component: {fileID: 6073187573680593342}
   - component: {fileID: 4142663389893731801}
-  - component: {fileID: 6506184232139821424}
+  - component: {fileID: 6506184232139821425}
   m_Layer: 8
   m_Name: Table_Tenis_bat
   m_TagString: Untagged
@@ -7003,10 +7026,32 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6506184232139821425}
+        m_MethodName: OnHoverEnter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnHoverExited:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4142663389893731801}
+        m_MethodName: OnHoverExited
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6506184232139821425}
         m_MethodName: OnHoverExited
         m_Mode: 1
         m_Arguments:
@@ -7034,7 +7079,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6506184232139821424}
+      - m_Target: {fileID: 6506184232139821425}
         m_MethodName: OnSelectEnter
         m_Mode: 1
         m_Arguments:
@@ -7059,7 +7104,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 6506184232139821424}
+      - m_Target: {fileID: 6506184232139821425}
         m_MethodName: OnSelectExit
         m_Mode: 1
         m_Arguments:
@@ -7128,7 +7173,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &6506184232139821424
+--- !u!114 &6506184232139821425
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7137,11 +7182,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6506184232139821415}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b886900735f5b64a83286cef2508c0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 3032e82bdf6c99940bde2f36519bdf0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hand: 0
-  isBeingHeld: 0
+  leftTransform: {fileID: 360917084}
+  rightTransform: {fileID: 461349979}
+  bat: {fileID: 6506184232139821415}
 --- !u!1 &6506184232139821437
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using Photon.Pun;
 
 public class TableTennisMulti : MonoBehaviour
 {
@@ -30,41 +31,36 @@ public class TableTennisMulti : MonoBehaviour
 
     public void OnSelectEnter()
     {
-        isBeingHeld = true;
-
-        var grabInteractable = GetComponent<XRGrabInteractable>();
-        string handEnter = grabInteractable.selectingInteractor.name;
-
-        if (handEnter == "Right Base Controller")
+        if (leftParent.transform.root.gameObject.GetComponent<PhotonView>().IsMine)
         {
+            isBeingHeld = true;
 
-            hand = 'R';
-            leftParent.transform.GetChild(0).gameObject.SetActive(false);
-            rightParent.transform.GetChild(0).gameObject.SetActive(false);
+            var grabInteractable = GetComponent<XRGrabInteractable>();
+            string handEnter = grabInteractable.selectingInteractor.name;
 
-            rightParent.transform.GetChild(1).gameObject.SetActive(false);
-            leftParent.transform.GetChild(1).gameObject.SetActive(true);
+            if (handEnter == "Right Base Controller")
+            {
 
-        }
-        else if (handEnter == "Left Base Controller")
-        {
-            hand = 'L';
-            leftParent.transform.GetChild(0).gameObject.SetActive(false);
-            rightParent.transform.GetChild(0).gameObject.SetActive(false);
+                hand = 'R';
 
-            rightParent.transform.GetChild(1).gameObject.SetActive(true);
-            leftParent.transform.GetChild(1).gameObject.SetActive(false);
+            }
+            else if (handEnter == "Left Base Controller")
+            {
+                hand = 'L';
+            }
         }
     }
 
     public void OnSelectExit()
     {
-        isBeingHeld = false;
-
-        leftParent.transform.GetChild(0).gameObject.SetActive(true);
-        rightParent.transform.GetChild(0).gameObject.SetActive(true);
-
-        rightParent.transform.GetChild(1).gameObject.SetActive(false);
-        leftParent.transform.GetChild(1).gameObject.SetActive(false);
+        if (leftParent.transform.root.gameObject.GetComponent<PhotonView>().IsMine)
+        {
+            isBeingHeld = false;
+	        leftParent.transform.GetChild(0).gameObject.SetActive(true);
+	        rightParent.transform.GetChild(0).gameObject.SetActive(true);
+	
+	        rightParent.transform.GetChild(1).gameObject.SetActive(false);
+	        leftParent.transform.GetChild(1).gameObject.SetActive(false);
+        }
     }
 }
