@@ -10,16 +10,21 @@ public class TTBat2 : MonoBehaviour
     public Transform rightTransform;
     public GameObject bat;
 
+    Rigidbody rb;
+
     public static GameObject leftParent;
     public static GameObject rightParent;
 
     public static PhotonView bat2View;
     public static int batID = 2;
-    public static bool isHovering = false;
+    public bool isHovering = false;
     public static bool hasSelected = false;
+    public bool canSelect = true;
     public static bool bat2ViewInit = false;
 
     public static char hand;
+    Transform root;
+    XRBaseInteractor selector;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +55,6 @@ public class TTBat2 : MonoBehaviour
     public void OnHoverEnter()
     {
         isHovering = true;
-        Debug.Log(GameObject.FindGameObjectsWithTag("rightHand"));
     }
 
     public void OnHoverExited()
@@ -59,30 +63,43 @@ public class TTBat2 : MonoBehaviour
     }
     public void OnSelectEnter()
     {
-        hasSelected = true;
-        var grabInteractable = GetComponent<XRGrabInteractable>();
-
-        var root = grabInteractable.selectingInteractor.gameObject.transform.root;
-        leftParent = root.transform.GetChild(2).GetChild(1).gameObject;
-        rightParent = root.transform.GetChild(2).GetChild(2).gameObject;
-
-        bat2View = grabInteractable.selectingInteractor.transform.root.gameObject.GetComponent<PhotonView>();
-        bat2ViewInit = true;
-
-        string handEnter = grabInteractable.selectingInteractor.name;
-
-
-        if (handEnter == "Right Base Controller")
+        if (canSelect)
         {
-            hand = 'R';
-        }
-        else if (handEnter == "Left Base Controller")
-        {
-            hand = 'L';
+            canSelect = false;
+	        hasSelected = true;
+	        var grabInteractable = GetComponent<XRGrabInteractable>();
+	
+	        root = grabInteractable.selectingInteractor.gameObject.transform.root;
+            selector = grabInteractable.selectingInteractor;
+	        leftParent = root.transform.GetChild(2).GetChild(1).gameObject;
+	        rightParent = root.transform.GetChild(2).GetChild(2).gameObject;
+	
+	        bat2View = grabInteractable.selectingInteractor.transform.root.gameObject.GetComponent<PhotonView>();
+	        bat2ViewInit = true;
+	
+	        string handEnter = grabInteractable.selectingInteractor.name;
+	
+	
+	        if (handEnter == "Right Base Controller")
+	        {
+	            hand = 'R';
+	        }
+	        else if (handEnter == "Left Base Controller")
+	        {
+	            hand = 'L';
+	        }
+            grabInteractable.selectingInteractor.interactionLayerMask = LayerMask.GetMask("InHandBat2");
+            grabInteractable.interactionLayerMask = LayerMask.GetMask("InHandBat2");
+            root.transform.GetChild(0).GetChild(0).GetChild(4).gameObject.GetComponent<XRDirectInteractor>().interactionLayerMask = LayerMask.GetMask("InHandBat2");
         }
     }
     public void OnSelectExit()
     {
         hasSelected = false;
+        canSelect = true;
+        var grabInteractable = GetComponent<XRGrabInteractable>();
+        selector.interactionLayerMask = LayerMask.GetMask("Interactable", "UI");
+        grabInteractable.interactionLayerMask = LayerMask.GetMask("Interactable");
+        root.transform.GetChild(0).GetChild(0).GetChild(4).gameObject.GetComponent<XRDirectInteractor>().interactionLayerMask = LayerMask.GetMask("Interactable", "UI");
     }
 }
