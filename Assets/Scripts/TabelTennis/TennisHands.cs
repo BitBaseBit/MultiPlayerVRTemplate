@@ -89,6 +89,7 @@ public class TennisHands : MonoBehaviourPunCallbacks
         {
             //8
             Debug.Log("Got to 8");
+
             photonView.RPC("ShowHands", RpcTarget.AllBuffered);
         }
 
