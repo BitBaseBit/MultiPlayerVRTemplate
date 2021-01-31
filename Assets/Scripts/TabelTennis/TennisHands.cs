@@ -10,6 +10,7 @@ public class TennisHands : MonoBehaviourPunCallbacks
     public GameObject rightParent;
 
     PhotonView photonView;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +32,13 @@ public class TennisHands : MonoBehaviourPunCallbacks
                     Debug.Log(TTBat1.bat1View);
                     Debug.Log(photonView);
 
-                    leftParent.transform.GetChild(0).gameObject.SetActive(false);
-                    rightParent.transform.GetChild(0).gameObject.SetActive(false);
-                    rightParent.transform.GetChild(1).gameObject.SetActive(true);
-                    leftParent.transform.GetChild(1).gameObject.SetActive(false);
+                    //leftParent.transform.GetChild(0).gameObject.SetActive(false);
+                    //rightParent.transform.GetChild(0).gameObject.SetActive(false);
+                    //rightParent.transform.GetChild(1).gameObject.SetActive(true);
+                    //leftParent.transform.GetChild(1).gameObject.SetActive(false);
 
-                    photonView.RPC("ShowRightController", RpcTarget.AllBuffered);
+                    photonView.RPC("ShowRightController", RpcTarget.AllBuffered, 1);
+                    TTBat1.handsVisible = false;
                     break;
                 case 'R':
                     //3
@@ -44,12 +46,13 @@ public class TennisHands : MonoBehaviourPunCallbacks
                     Debug.Log(TTBat1.bat1View);
                     Debug.Log(photonView);
 
-                    leftParent.transform.GetChild(0).gameObject.SetActive(false);
-                    rightParent.transform.GetChild(0).gameObject.SetActive(false);
-                    rightParent.transform.GetChild(1).gameObject.SetActive(false);
-                    leftParent.transform.GetChild(1).gameObject.SetActive(true);
+                    //leftParent.transform.GetChild(0).gameObject.SetActive(false);
+                    //rightParent.transform.GetChild(0).gameObject.SetActive(false);
+                    //rightParent.transform.GetChild(1).gameObject.SetActive(false);
+                    //leftParent.transform.GetChild(1).gameObject.SetActive(true);
 
-                    photonView.RPC("ShowLeftController", RpcTarget.AllBuffered);
+                    photonView.RPC("ShowLeftController", RpcTarget.AllBuffered, 1);
+                    TTBat1.handsVisible = false;
                     break;
                 default:
                     Debug.LogError("TTBat1.hand was neither L nor R");
@@ -65,73 +68,119 @@ public class TennisHands : MonoBehaviourPunCallbacks
                 case 'L':
                     //5
                     Debug.Log("Got to 5");
-                    photonView.RPC("ShowRightController", RpcTarget.AllBuffered);
+                    photonView.RPC("ShowRightController", RpcTarget.AllBuffered, 2);
+                    TTBat2.handsVisible = false;
                     break;
                 case 'R':
                     //6
                     Debug.Log("Got to 6");
-                    photonView.RPC("ShowLeftController", RpcTarget.AllBuffered);
+                    photonView.RPC("ShowLeftController", RpcTarget.AllBuffered,2);
+                    TTBat2.handsVisible = false;
                     break;
                 default:
                     Debug.LogError("TTBat2.hand was neither L nor R");
                     break;
             }
         }
-        else if (!TTBat2.hasSelected && TTBat2.bat2ViewInit && !leftParent.transform.GetChild(0).gameObject.activeSelf &&
+        else if (!TTBat2.handsVisible && !TTBat2.hasSelected && TTBat2.bat2ViewInit  &&
                  TTBat2.bat2View.IsMine)
         {
             //7
             Debug.Log("Got to 7");
-            photonView.RPC("ShowHands", RpcTarget.AllBuffered);
+            photonView.RPC("ShowHands", RpcTarget.AllBuffered, 2);
+            TTBat2.handsVisible = true;
         }
-        else if (!TTBat1.hasSelected && TTBat1.bat1ViewInit && !leftParent.transform.GetChild(0).gameObject.activeSelf &&
+        else if (!TTBat1.handsVisible && !TTBat1.hasSelected && TTBat1.bat1ViewInit && 
                  TTBat1.bat1View.IsMine)
         {
             //8
             Debug.Log("Got to 8");
 
-            photonView.RPC("ShowHands", RpcTarget.AllBuffered);
+            photonView.RPC("ShowHands", RpcTarget.AllBuffered, 1);
+            TTBat1.handsVisible = true;
         }
 
     }
 
     [PunRPC]
-    public void ShowLeftController()
+    public void ShowLeftController(int batID)
     {
-        PhotonView myView = GetComponent<PhotonView>();
-        if (!myView.IsMine)
+        switch (batID)
         {
-            leftParent.transform.GetChild(0).gameObject.SetActive(false);
-            rightParent.transform.GetChild(0).gameObject.SetActive(false);
+            case 1:
+                TTBat1.leftParent.transform.GetChild(0).gameObject.SetActive(false);
+                TTBat1.rightParent.transform.GetChild(0).gameObject.SetActive(false);
 
-            rightParent.transform.GetChild(1).gameObject.SetActive(false);
-            leftParent.transform.GetChild(1).gameObject.SetActive(true);
-        }    
+                TTBat1.rightParent.transform.GetChild(1).gameObject.SetActive(false);
+                TTBat1.leftParent.transform.GetChild(1).gameObject.SetActive(true);
+                //9
+                Debug.Log("Got to 9");
+                break;
+            case 2:
+                TTBat2.leftParent.transform.GetChild(0).gameObject.SetActive(false);
+                TTBat2.rightParent.transform.GetChild(0).gameObject.SetActive(false);
+
+                TTBat2.rightParent.transform.GetChild(1).gameObject.SetActive(true);
+                TTBat2.leftParent.transform.GetChild(1).gameObject.SetActive(false);
+                break;
+            default:
+                Debug.LogError("Something went wrong in ShowLeftController,  batID was neither 1 nor 2");
+                break;
+        }
+       
     }
 
     [PunRPC]
-    public void ShowRightController()
+    public void ShowRightController(int batID)
     {
-        PhotonView myView = GetComponent<PhotonView>();
-        if (!myView.IsMine)
+        switch (batID)
         {
-            leftParent.transform.GetChild(0).gameObject.SetActive(false);
-            rightParent.transform.GetChild(0).gameObject.SetActive(false);
+            case 1:
+                TTBat1.leftParent.transform.GetChild(0).gameObject.SetActive(false);
+                TTBat1.rightParent.transform.GetChild(0).gameObject.SetActive(false);
 
-            rightParent.transform.GetChild(1).gameObject.SetActive(true);
-            leftParent.transform.GetChild(1).gameObject.SetActive(false);
-        }    
-        //9
-        Debug.Log("Got to 9");
+                TTBat1.rightParent.transform.GetChild(1).gameObject.SetActive(true);
+                TTBat1.leftParent.transform.GetChild(1).gameObject.SetActive(false);
+                //9
+                Debug.Log("Got to 9");
+                break;
+            case 2:
+                TTBat2.leftParent.transform.GetChild(0).gameObject.SetActive(false);
+                TTBat2.rightParent.transform.GetChild(0).gameObject.SetActive(false);
+
+                TTBat2.rightParent.transform.GetChild(1).gameObject.SetActive(true);
+                TTBat2.leftParent.transform.GetChild(1).gameObject.SetActive(false);
+                break;
+            default:
+                Debug.LogError("Something went wrong in ShowRightController,  batID was neither 1 nor 2");
+                break;
+        }
     }
 
     [PunRPC]
-    public void ShowHands()
+    public void ShowHands(int batID)
     {
-        leftParent.transform.GetChild(0).gameObject.SetActive(true);
-        rightParent.transform.GetChild(0).gameObject.SetActive(true);
+        switch (batID)
+        {
+            case 1:
+                TTBat1.leftParent.transform.GetChild(0).gameObject.SetActive(true);
+                TTBat1.rightParent.transform.GetChild(0).gameObject.SetActive(true);
 
-        rightParent.transform.GetChild(1).gameObject.SetActive(false);
-        leftParent.transform.GetChild(1).gameObject.SetActive(false);
+                TTBat1.rightParent.transform.GetChild(1).gameObject.SetActive(false);
+                TTBat1.leftParent.transform.GetChild(1).gameObject.SetActive(false);
+                break;
+
+            case 2:
+                TTBat2.leftParent.transform.GetChild(0).gameObject.SetActive(true);
+                TTBat2.rightParent.transform.GetChild(0).gameObject.SetActive(true);
+
+                TTBat2.rightParent.transform.GetChild(1).gameObject.SetActive(false);
+                TTBat2.leftParent.transform.GetChild(1).gameObject.SetActive(false);
+                break;
+            default:
+                Debug.LogError("Something went wrong in ShowHands, batID was neither 1 nor 2");
+                break;
+        }
+        
     }
 }

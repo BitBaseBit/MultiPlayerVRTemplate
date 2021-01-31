@@ -21,6 +21,7 @@ public class TTBat2 : MonoBehaviour
     public static bool hasSelected = false;
     public bool canSelect = true;
     public static bool bat2ViewInit = false;
+    public static bool handsVisible;
 
     public static char hand;
     Transform root;

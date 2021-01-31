@@ -21,11 +21,12 @@ public class TTBat1 : MonoBehaviour
     public bool canSelect = true;
     public static PhotonView bat1View;
     public static bool bat1ViewInit = false;
+    public static bool handsVisible;
 
     public static char hand;
 
-    Transform root;
-    XRBaseInteractor selector;
+    public Transform root;
+    public XRBaseInteractor selector;
     // Start is called before the first frame update
     void Start()
     {
