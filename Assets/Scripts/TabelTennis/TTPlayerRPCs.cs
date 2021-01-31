@@ -40,7 +40,9 @@ public class TTPlayerRPCs : MonoBehaviourPunCallbacks
                 grabInteractor = batInteractable.selectingInteractor;
         
                 // Person who is selecting the bat
-                //batView = grabInteractor.selectTarget.transform.root.gameObject.GetComponent<PhotonView>();
+                batView = grabInteractor.selectTarget.transform.root.gameObject.GetComponent<PhotonView>();
+                if (!batView.IsMine) return;
+
 
                 genericVRPlayerGameObj = grabInteractor.gameObject.transform.root.gameObject;
                 leftParent = genericVRPlayerGameObj.transform.GetChild(2).GetChild(1).gameObject;
@@ -76,7 +78,8 @@ public class TTPlayerRPCs : MonoBehaviourPunCallbacks
                 grabInteractor = batInteractable.selectingInteractor;
         
                 // Person who is selecting the bat
-                //batView = grabInteractor.selectTarget.transform.root.gameObject.GetComponent<PhotonView>();
+                batView = grabInteractor.selectTarget.transform.root.gameObject.GetComponent<PhotonView>();
+                if (!batView.IsMine) return;
 
                 genericVRPlayerGameObj = grabInteractor.gameObject.transform.root.gameObject;
                 leftParent = genericVRPlayerGameObj.transform.GetChild(2).GetChild(1).gameObject;
@@ -111,6 +114,7 @@ public class TTPlayerRPCs : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ShowHands(int batTag)
     {
+        if (!batView.IsMine) return;
 
         switch (batTag)
         {
