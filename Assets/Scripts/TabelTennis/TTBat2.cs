@@ -26,6 +26,10 @@ public class TTBat2 : MonoBehaviour
     public static char hand;
     Transform root;
     XRBaseInteractor selector;
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     // Start is called before the first frame update
     void Start()
     {

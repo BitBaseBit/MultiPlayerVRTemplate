@@ -28,6 +28,10 @@ public class TTBat1 : MonoBehaviour
     public Transform root;
     public XRBaseInteractor selector;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     void Start()
     {
         var interactable = GetComponent<XRGrabInteractable>();
