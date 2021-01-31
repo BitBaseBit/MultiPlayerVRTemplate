@@ -1782,7 +1782,7 @@ GameObject:
   - component: {fileID: 1031447708}
   m_Layer: 8
   m_Name: Table_Tenis_bat (1)
-  m_TagString: Untagged
+  m_TagString: bat2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6814,7 +6814,7 @@ GameObject:
   - component: {fileID: 6506184232139821424}
   m_Layer: 8
   m_Name: Table_Tenis_bat
-  m_TagString: Untagged
+  m_TagString: bat1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

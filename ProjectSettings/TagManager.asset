@@ -11,6 +11,8 @@ TagManager:
   - leftHand
   - rightHand
   - avatar
+  - bat1
+  - bat2
   layers:
   - Default
   - TransparentFX

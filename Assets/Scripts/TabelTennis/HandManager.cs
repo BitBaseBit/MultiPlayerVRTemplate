@@ -12,13 +12,14 @@ public class HandManager : MonoBehaviourPunCallbacks
 
     Rigidbody rb;
 
-    GameObject leftParent;
-    GameObject rightParent;
+    public static GameObject leftParent;
+    public static GameObject rightParent;
 
     bool isHovering = false;
     bool hasSelected = false;
     bool canSelect = true;
     bool handsVisible;
+    bool isBeingHeld = false;
 
     PhotonView batView;
 
@@ -29,12 +30,22 @@ public class HandManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        var interactable = GetComponent<XRGrabInteractable>();
+        rb = GetComponent<Rigidbody>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
+       if (isBeingHeld)
+        {
+            rb.isKinematic = true;
+            gameObject.layer = 13;
+        }
+        else
+        {
+            rb.isKinematic = false;
+            gameObject.layer = 8;
+        }
         //if (isHovering)
         //{
         //    var distanceRightFromBat = Vector3.Distance(rightParent.transform.position, bat.transform.position);
@@ -64,87 +75,32 @@ public class HandManager : MonoBehaviourPunCallbacks
     }
     public void OnSelectEnter()
     {
+        isBeingHeld = true;
         var grabInteractable = GetComponent<XRGrabInteractable>();
 	    batView = grabInteractable.selectingInteractor.transform.root.gameObject.GetComponent<PhotonView>();
-        PhotonView view = this.GetComponent<PhotonView>();
-        bool test = view == batView;
 
-        Debug.Log("Is the photon view on the bat somehow the same on on the player: " + test);
-
-        if (batView.IsMine)
+        if (this.gameObject.CompareTag("bat1"))
         {
-	        if (canSelect)
-	        {
-		        hasSelected = true;
-	            canSelect = false;
-		
-	            selector = grabInteractable.selectingInteractor;
-		        root = grabInteractable.selectingInteractor.gameObject.transform.root;
-		        leftParent = root.transform.GetChild(2).GetChild(1).gameObject;
-		        rightParent = root.transform.GetChild(2).GetChild(2).gameObject;
-		
-		        string handEnter = grabInteractable.selectingInteractor.name;
-		
-		
-		        if (handEnter == "Right Base Controller")
-		        {
-                    view.RPC("ShowLeftController", RpcTarget.AllBuffered);
-		        }
-		        else if (handEnter == "Left Base Controller")
-		        {
-                    view.RPC("ShowRightController", RpcTarget.AllBuffered);
-		        }
-	            grabInteractable.selectingInteractor.interactionLayerMask = LayerMask.GetMask("InHand");
-	            grabInteractable.interactionLayerMask = LayerMask.GetMask("InHand");
-	            root.transform.GetChild(0).GetChild(0).GetChild(4).gameObject.GetComponent<XRDirectInteractor>().interactionLayerMask = LayerMask.GetMask("InHand");
-	        }
+            batView.RPC("ShowController", RpcTarget.AllBuffered, 1);
+        }
+        else if (this.gameObject.CompareTag("bat2"))
+        {
+            batView.RPC("ShowController", RpcTarget.AllBuffered, 2);
         }
     }
 
     public void OnSelectExit()
     {
-        hasSelected = false;
-        canSelect = true;
-        var grabInteractable = GetComponent<XRGrabInteractable>();
-        selector.interactionLayerMask = LayerMask.GetMask("Interactable", "UI");
-        grabInteractable.interactionLayerMask = LayerMask.GetMask("Interactable");
-        root.transform.GetChild(0).GetChild(0).GetChild(4).gameObject.GetComponent<XRDirectInteractor>().interactionLayerMask = LayerMask.GetMask("Interactable", "UI");
+        isBeingHeld = false;
 
-        PhotonView view = this.GetComponent<PhotonView>();
-        if (batView.IsMine)
+        if (this.gameObject.CompareTag("bat1"))
         {
-            view.RPC("ShowHands", RpcTarget.AllBuffered);
+            batView.RPC("ShowHands", RpcTarget.AllBuffered, 1);
+        }
+        else if (this.gameObject.CompareTag("bat2"))
+        {
+            batView.RPC("ShowHands", RpcTarget.AllBuffered, 2);
         }
     }
 
-    [PunRPC]
-    public void ShowLeftController()
-    {
-        leftParent.transform.GetChild(0).gameObject.SetActive(false);
-        rightParent.transform.GetChild(0).gameObject.SetActive(false);
-
-        rightParent.transform.GetChild(1).gameObject.SetActive(false);
-        leftParent.transform.GetChild(1).gameObject.SetActive(true);                    
-    }
-
-    [PunRPC]
-    public void ShowRightController()
-    {
-        leftParent.transform.GetChild(0).gameObject.SetActive(false);
-        rightParent.transform.GetChild(0).gameObject.SetActive(false);
-
-        rightParent.transform.GetChild(1).gameObject.SetActive(true);
-        leftParent.transform.GetChild(1).gameObject.SetActive(false);                    
-            
-    }
-
-    [PunRPC]
-    public void ShowHands()
-    {
-        leftParent.transform.GetChild(0).gameObject.SetActive(true);
-        rightParent.transform.GetChild(0).gameObject.SetActive(true);
-
-        rightParent.transform.GetChild(1).gameObject.SetActive(false);
-        leftParent.transform.GetChild(1).gameObject.SetActive(false);                    
-    }
 }

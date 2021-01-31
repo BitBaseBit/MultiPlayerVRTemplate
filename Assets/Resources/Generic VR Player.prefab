@@ -2205,6 +2205,7 @@ GameObject:
   - component: {fileID: 1791358883631803809}
   - component: {fileID: 134880661888129745}
   - component: {fileID: 5240023214673917402}
+  - component: {fileID: 6170427359907712070}
   m_Layer: 10
   m_Name: Generic VR Player
   m_TagString: Player
@@ -2406,6 +2407,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oculusTouchLeft: {fileID: 4625755875349104008}
   oculusTouchRight: {fileID: 3930244237791413164}
+--- !u!114 &6170427359907712070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6165159244821947648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1c2ae9b201feb4e95cb397be2b8612, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6434950023774586696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3566,15 +3579,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4470b2e79e849934cbb5781e7100483b, type: 3}
---- !u!4 &4625755875349076456 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400038, guid: 4470b2e79e849934cbb5781e7100483b,
-    type: 3}
-  m_PrefabInstance: {fileID: 4625755875349201742}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4625755875349104008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100038, guid: 4470b2e79e849934cbb5781e7100483b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4625755875349201742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4625755875349076456 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400038, guid: 4470b2e79e849934cbb5781e7100483b,
     type: 3}
   m_PrefabInstance: {fileID: 4625755875349201742}
   m_PrefabAsset: {fileID: 0}
