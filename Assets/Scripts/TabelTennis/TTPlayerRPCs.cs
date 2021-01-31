@@ -13,6 +13,7 @@ public class TTPlayerRPCs : MonoBehaviourPunCallbacks
     GameObject genericVRPlayerGameObj;
     GameObject leftParent;
     GameObject rightParent;
+    bool isBeingHeld;
 
     PhotonView photonView;
 
@@ -28,6 +29,37 @@ public class TTPlayerRPCs : MonoBehaviourPunCallbacks
     {
         
     }
+    public void OnSelectEnter()
+    {
+        isBeingHeld = true;
+
+
+        if (this.gameObject.CompareTag("bat1") && photonView.IsMine)
+        {
+            //gameobject.findgameobjectswithtag("bat1");
+            //var grabinteractable = getcomponent<xrgrabinteractable>();
+            //batview = grabinteractable.selectinginteractor.transform.root.gameobject.getcomponent<photonview>();
+            photonView.RPC("ShowController", RpcTarget.AllBuffered, 1);
+        }
+        else if (this.gameObject.CompareTag("bat2") && photonView.IsMine)
+        {
+            photonView.RPC("ShowController", RpcTarget.AllBuffered, 2);
+        }
+    }
+
+    public void OnSelectExit()
+    {
+        isBeingHeld = false;
+
+        if (this.gameObject.CompareTag("bat1") && photonView.IsMine)
+        {
+            photonView.RPC("ShowHands", RpcTarget.AllBuffered, 1);
+        }
+        else if (this.gameObject.CompareTag("bat2") && photonView.IsMine)
+        {
+            photonView.RPC("ShowHands", RpcTarget.AllBuffered, 2);
+        }
+    }
 
     [PunRPC]
     public void ShowController(int batTag)
@@ -40,8 +72,6 @@ public class TTPlayerRPCs : MonoBehaviourPunCallbacks
                 grabInteractor = batInteractable.selectingInteractor;
         
                 // Person who is selecting the bat
-                batView = grabInteractor.selectTarget.transform.root.gameObject.GetComponent<PhotonView>();
-                if (!batView.IsMine) return;
 
 
                 genericVRPlayerGameObj = grabInteractor.gameObject.transform.root.gameObject;
@@ -78,8 +108,6 @@ public class TTPlayerRPCs : MonoBehaviourPunCallbacks
                 grabInteractor = batInteractable.selectingInteractor;
         
                 // Person who is selecting the bat
-                batView = grabInteractor.selectTarget.transform.root.gameObject.GetComponent<PhotonView>();
-                if (!batView.IsMine) return;
 
                 genericVRPlayerGameObj = grabInteractor.gameObject.transform.root.gameObject;
                 leftParent = genericVRPlayerGameObj.transform.GetChild(2).GetChild(1).gameObject;
@@ -114,7 +142,6 @@ public class TTPlayerRPCs : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ShowHands(int batTag)
     {
-        if (!batView.IsMine) return;
 
         switch (batTag)
         {
