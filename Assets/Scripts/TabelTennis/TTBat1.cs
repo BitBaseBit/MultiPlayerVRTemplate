@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Photon.Pun;
 
-public class TTBat1 : MonoBehaviour
+public class TTBat1 : MonoBehaviourPunCallbacks
 {
     public Transform leftTransform;
     public Transform rightTransform;
@@ -28,10 +28,6 @@ public class TTBat1 : MonoBehaviour
     public Transform root;
     public XRBaseInteractor selector;
     // Start is called before the first frame update
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
     void Start()
     {
         var interactable = GetComponent<XRGrabInteractable>();

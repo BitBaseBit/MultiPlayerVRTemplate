@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using Photon.Pun;
 
-public class TTBat2 : MonoBehaviour
+public class TTBat2 : MonoBehaviourPunCallbacks
 {
     public Transform leftTransform;
     public Transform rightTransform;
@@ -26,10 +26,6 @@ public class TTBat2 : MonoBehaviour
     public static char hand;
     Transform root;
     XRBaseInteractor selector;
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
     // Start is called before the first frame update
     void Start()
     {
