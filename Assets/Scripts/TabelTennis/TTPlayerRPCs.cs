@@ -57,7 +57,7 @@ public class TTPlayerRPCs : MonoBehaviourPun
 
         if (photonView.IsMine && (!bat1Selected || !bat2Selected))
         {
-            Debug.Log("Got to 2");
+            Debug.Log("From Ed (photonView.IsMine): " + photonView.IsMine);
             photonView.RPC("ShowController", RpcTarget.AllBuffered);
             canSeeHands = false;
         }
@@ -113,6 +113,8 @@ public class TTPlayerRPCs : MonoBehaviourPun
 
             string handEnter1 = grabInteractor.name;
             Debug.Log(handEnter1);
+            Debug.Log(batInteractable);
+            Debug.Log("Got to 6");
 
             if (handEnter1 == "Right Base Controller")
             {
@@ -139,6 +141,8 @@ public class TTPlayerRPCs : MonoBehaviourPun
 
             string handEnter1 = grabInteractor.name;
             Debug.Log(handEnter1);
+
+            Debug.Log("Got to 5");
 
             if (handEnter1 == "Right Base Controller")
             {
