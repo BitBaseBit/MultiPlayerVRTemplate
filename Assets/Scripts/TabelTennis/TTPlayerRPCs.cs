@@ -45,6 +45,11 @@ public class TTPlayerRPCs : MonoBehaviourPun
         bat1 = GameObject.FindGameObjectWithTag("bat1");
         bat2 = GameObject.FindGameObjectWithTag("bat2");
 
+        if (bat1 == null && bat2 == null)
+        {
+            return;
+        }
+
         bat1Selected = bat1.GetComponent<XRGrabInteractable>().selectingInteractor == null;
         bat2Selected = bat2.GetComponent<XRGrabInteractable>().selectingInteractor == null;
 
