@@ -219,6 +219,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
         m_NetworkRotation_RightController = Quaternion.identity;
 
         leftControllerTransform = leftHandTransform.GetChild(1).transform;
+        Debug.Log(leftControllerTransform.name);
         leftController = leftControllerTransform.gameObject;
         m_StoredPosition_LeftController = leftControllerTransform.localPosition;
         m_NetworkPosition_LeftController = Vector3.zero;
@@ -493,6 +494,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             if (m_firstTake)
             {
                 Debug.Log(this.m_NetworkPosition_LeftController);
+                Debug.Log(leftControllerTransform.name);
                 leftControllerTransform.localPosition = this.m_NetworkPosition_LeftController;
                 this.m_Distance_LeftController = 0f;
             }
