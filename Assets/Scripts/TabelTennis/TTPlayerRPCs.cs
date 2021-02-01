@@ -114,6 +114,8 @@ public class TTPlayerRPCs : MonoBehaviourPun
         if (bat1.GetComponent<XRGrabInteractable>().selectingInteractor == null)
         {
             batInteractable = bat2.GetComponent<XRGrabInteractable>();
+            Debug.Log(bat2.name);
+            Debug.Log(batInteractable);
             grabInteractor = batInteractable.selectingInteractor;
 
             string handEnter1 = grabInteractor.name;
