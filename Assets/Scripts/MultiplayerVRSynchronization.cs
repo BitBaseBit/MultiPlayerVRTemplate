@@ -65,13 +65,10 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     //Hands Synch
     [Header("Hands Transform Synch")]
     public Transform leftHandTransform;
-    private Transform leftControllerTransform;
 
     public Transform rightHandTransform;
-    private Transform rightControllerTransform;
 
     //Left Hand Sync
-    public GameObject leftController;
     //Position Hand
     private float m_Distance_LeftHand;
     private Vector3 m_Direction_LeftHand;
@@ -83,17 +80,10 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     private float m_Angle_LeftHand;
 
     //Position Controller
-    private float m_Distance_LeftController;
-    private Vector3 m_Direction_LeftController;
-    private Vector3 m_NetworkPosition_LeftController;
-    private Vector3 m_StoredPosition_LeftController;
 
     //Rotation Controller
-    private Quaternion m_NetworkRotation_LeftController;
-    private float m_Angle_LeftController;
 
     //Right Hand Synch
-    public GameObject rightController;
 
     //Position Hand
     private float m_Distance_RightHand;
@@ -106,14 +96,8 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     private float m_Angle_RightHand;
 
     // Position Controller
-    private float m_Distance_RightController;
-    private Vector3 m_Direction_RightController;
-    private Vector3 m_NetworkPosition_RightController;
-    private Vector3 m_StoredPosition_RightController;
 
     // Rotation Controller
-    private Quaternion m_NetworkRotation_RightController;
-    private float m_Angle_RightController;
 
 
 
@@ -212,18 +196,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
 
 
         // Right Controller sync init
-        rightControllerTransform = rightHandTransform.GetChild(1).transform;
-        rightController = rightControllerTransform.gameObject;
-        m_StoredPosition_RightController = rightControllerTransform.localPosition;
-        m_NetworkPosition_RightController = Vector3.zero;
-        m_NetworkRotation_RightController = Quaternion.identity;
 
-        leftControllerTransform = leftHandTransform.GetChild(1).transform;
-        Debug.Log(leftControllerTransform.name);
-        leftController = leftControllerTransform.gameObject;
-        m_StoredPosition_LeftController = leftControllerTransform.localPosition;
-        m_NetworkPosition_LeftController = Vector3.zero;
-        m_NetworkRotation_LeftController = Quaternion.identity;
     }
 
     void OnEnable()
@@ -249,14 +222,10 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             leftHandTransform.localPosition = Vector3.MoveTowards(leftHandTransform.localPosition, this.m_NetworkPosition_LeftHand, this.m_Distance_LeftHand * (1.0f / PhotonNetwork.SerializationRate));
             leftHandTransform.localRotation = Quaternion.RotateTowards(leftHandTransform.localRotation, this.m_NetworkRotation_LeftHand, this.m_Angle_LeftHand * (1.0f / PhotonNetwork.SerializationRate));
 
-            leftControllerTransform.localPosition = Vector3.MoveTowards(leftControllerTransform.localPosition, this.m_NetworkPosition_LeftController, this.m_Distance_LeftController * (1.0f / PhotonNetwork.SerializationRate));
-            leftControllerTransform.localRotation = Quaternion.RotateTowards(leftControllerTransform.localRotation, this.m_NetworkRotation_LeftController, this.m_Angle_LeftController * (1.0f / PhotonNetwork.SerializationRate));
 
             rightHandTransform.localPosition = Vector3.MoveTowards(rightHandTransform.localPosition, this.m_NetworkPosition_RightHand, this.m_Distance_RightHand * (1.0f / PhotonNetwork.SerializationRate));
             rightHandTransform.localRotation = Quaternion.RotateTowards(rightHandTransform.localRotation, this.m_NetworkRotation_RightHand, this.m_Angle_RightHand * (1.0f / PhotonNetwork.SerializationRate));
 
-            rightControllerTransform.localPosition = Vector3.MoveTowards(rightControllerTransform.localPosition, this.m_NetworkPosition_RightController, this.m_Distance_RightController * (1.0f / PhotonNetwork.SerializationRate));
-            rightControllerTransform.localRotation = Quaternion.RotateTowards(rightControllerTransform.localRotation, this.m_NetworkRotation_RightController, this.m_Angle_RightController * (1.0f / PhotonNetwork.SerializationRate));
 
         }
     }
@@ -324,16 +293,10 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             stream.SendNext(leftHandTransform.gameObject.activeSelf);
 
             //Send Left Controller position data
-            this.m_Direction_LeftController = leftControllerTransform.localPosition - this.m_StoredPosition_LeftController;
-            this.m_StoredPosition_LeftController = leftControllerTransform.localPosition;
 
-            stream.SendNext(leftControllerTransform.localPosition);
-            stream.SendNext(this.m_Direction_LeftController);
 
             //Send Left Controller rotation data
-            stream.SendNext(leftControllerTransform.localRotation);
             // if left Controller is active
-            stream.SendNext(leftController.activeSelf);
 
             //Right Hand
             //Send Right Hand position data
@@ -349,15 +312,9 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
         
             //Right Controller
             //Send Right Controller position data
-            this.m_Direction_RightController = rightControllerTransform.localPosition - this.m_StoredPosition_RightController;
-            this.m_StoredPosition_RightController = rightControllerTransform.localPosition;
 
-            stream.SendNext(rightControllerTransform.localPosition);
-            stream.SendNext(this.m_Direction_RightController);
 
             //Send Right Controller rotation data
-            stream.SendNext(rightControllerTransform.localRotation);
-            stream.SendNext(rightController.activeSelf);
         }
         else
         {
@@ -487,37 +444,9 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             }
             //Get Left Controller position data
 
-            this.m_NetworkPosition_LeftController = (Vector3)stream.ReceiveNext();
-            Debug.Log(this.m_NetworkPosition_LeftController);
-            this.m_Direction_LeftController = (Vector3)stream.ReceiveNext();
 
-            if (m_firstTake)
-            {
-                Debug.Log(this.m_NetworkPosition_LeftController);
-                Debug.Log(leftControllerTransform.name);
-                leftControllerTransform.localPosition = this.m_NetworkPosition_LeftController;
-                this.m_Distance_LeftController = 0f;
-            }
-            else
-            {
-                float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
-                this.m_NetworkPosition_LeftController += this.m_Direction_LeftController * lag;
-                this.m_Distance_LeftController = Vector3.Distance(leftControllerTransform.localPosition, this.m_NetworkPosition_LeftController);
-            }
 
             //Get Left Controller rotation data
-            this.m_NetworkRotation_LeftController = (Quaternion)stream.ReceiveNext();
-            isLeftControllerActive = (bool)stream.ReceiveNext();
-            if (m_firstTake)
-            {
-                this.m_Angle_LeftController = 0f;
-                leftControllerTransform.localRotation = this.m_NetworkRotation_LeftController;
-            }
-            else
-            {
-                this.m_Angle_LeftController = Quaternion.Angle(leftControllerTransform.localRotation, this.m_NetworkRotation_LeftController);
-            }
-
 
             //Get Right Hand position data
             this.m_NetworkPosition_RightHand = (Vector3)stream.ReceiveNext();
@@ -548,33 +477,8 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             }
 
             //Get Right Controller position data
-            this.m_NetworkPosition_RightController = (Vector3)stream.ReceiveNext();
-            this.m_Direction_RightController = (Vector3)stream.ReceiveNext();
-
-            if (m_firstTake)
-            {
-                rightControllerTransform.localPosition = this.m_NetworkPosition_RightController;
-                this.m_Distance_RightController = 0f;
-            }
-            else
-            {
-                float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
-                this.m_NetworkPosition_RightController += this.m_Direction_RightController * lag;
-                this.m_Distance_RightController = Vector3.Distance(rightControllerTransform.localPosition, this.m_NetworkPosition_RightController);
-            }
 
             //Get Right Controller rotation data
-            this.m_NetworkRotation_RightController = (Quaternion)stream.ReceiveNext();
-            isRightControllerActive = (bool)stream.ReceiveNext();
-            if (m_firstTake)
-            {
-                this.m_Angle_RightController = 0f;
-                rightControllerTransform.localRotation = this.m_NetworkRotation_RightController;
-            }
-            else
-            {
-                this.m_Angle_RightController = Quaternion.Angle(rightControllerTransform.localRotation, this.m_NetworkRotation_RightController);
-            }
             if (m_firstTake)
             {
                 m_firstTake = false;
