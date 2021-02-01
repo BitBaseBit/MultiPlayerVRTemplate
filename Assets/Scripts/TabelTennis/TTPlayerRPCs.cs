@@ -108,75 +108,75 @@ public class TTPlayerRPCs : MonoBehaviourPun
     [PunRPC]
     public void ShowController()
     {
-        bat1 = GameObject.FindGameObjectWithTag("bat1");
-        bat2 = GameObject.FindGameObjectWithTag("bat2");
+        //bat1 = GameObject.FindGameObjectWithTag("bat1");
+        //bat2 = GameObject.FindGameObjectWithTag("bat2");
 
-        if (bat1.GetComponent<XRGrabInteractable>().selectingInteractor == null)
-        {
-            batInteractable = bat2.GetComponent<XRGrabInteractable>();
-            Debug.Log(bat2.name);
-            Debug.Log(batInteractable);
-            grabInteractor = batInteractable.selectingInteractor;
+        //if (bat1.GetComponent<XRGrabInteractable>().selectingInteractor == null)
+        //{
+        //    batInteractable = bat2.GetComponent<XRGrabInteractable>();
+        //    Debug.Log(bat2.name);
+        //    Debug.Log(batInteractable);
+        //    grabInteractor = batInteractable.selectingInteractor;
 
-            if (grabInteractor == null)
-                return;
+        //    if (grabInteractor == null)
+        //        return;
 
-            Debug.Log("Got pas null check");
-            string handEnter1 = grabInteractor.name;
-            Debug.Log(handEnter1);
-            Debug.Log(batInteractable);
-            Debug.Log("Got to 6");
+        //    Debug.Log("Got pas null check");
+        //    string handEnter1 = grabInteractor.name;
+        //    Debug.Log(handEnter1);
+        //    Debug.Log(batInteractable);
+        //    Debug.Log("Got to 6");
 
-            if (handEnter1 == "Right Base Controller")
-            {
-                leftParent.transform.GetChild(0).gameObject.SetActive(false);
-                rightParent.transform.GetChild(0).gameObject.SetActive(false);
+        //    if (handEnter1 == "Right Base Controller")
+        //    {
+        //        leftParent.transform.GetChild(0).gameObject.SetActive(false);
+        //        rightParent.transform.GetChild(0).gameObject.SetActive(false);
 
-                rightParent.transform.GetChild(1).gameObject.SetActive(false);
-                leftParent.transform.GetChild(1).gameObject.SetActive(true);
-            }
-            else if (handEnter1 == "Left Base Controller")
-            {
-                leftParent.transform.GetChild(0).gameObject.SetActive(false);
-                rightParent.transform.GetChild(0).gameObject.SetActive(false);
+        //        rightParent.transform.GetChild(1).gameObject.SetActive(false);
+        //        leftParent.transform.GetChild(1).gameObject.SetActive(true);
+        //    }
+        //    else if (handEnter1 == "Left Base Controller")
+        //    {
+        //        leftParent.transform.GetChild(0).gameObject.SetActive(false);
+        //        rightParent.transform.GetChild(0).gameObject.SetActive(false);
 
-                rightParent.transform.GetChild(1).gameObject.SetActive(true);
-                leftParent.transform.GetChild(1).gameObject.SetActive(false);
-            }
+        //        rightParent.transform.GetChild(1).gameObject.SetActive(true);
+        //        leftParent.transform.GetChild(1).gameObject.SetActive(false);
+        //    }
 
-        }
-        else if (bat2.GetComponent<XRGrabInteractable>().selectingInteractor == null)
-        {
-            batInteractable = bat1.GetComponent<XRGrabInteractable>();
-            grabInteractor = batInteractable.selectingInteractor;
+        //}
+        //else if (bat2.GetComponent<XRGrabInteractable>().selectingInteractor == null)
+        //{
+        //    batInteractable = bat1.GetComponent<XRGrabInteractable>();
+        //    grabInteractor = batInteractable.selectingInteractor;
 
-            if (grabInteractor == null)
-                return;
+        //    if (grabInteractor == null)
+        //        return;
 
-            Debug.Log("Got pas null check");
-            string handEnter1 = grabInteractor.name;
-            Debug.Log(handEnter1);
+        //    Debug.Log("Got pas null check");
+        //    string handEnter1 = grabInteractor.name;
+        //    Debug.Log(handEnter1);
 
-            Debug.Log("Got to 5");
+        //    Debug.Log("Got to 5");
 
-            if (handEnter1 == "Right Base Controller")
-            {
-                leftParent.transform.GetChild(0).gameObject.SetActive(false);
-                rightParent.transform.GetChild(0).gameObject.SetActive(false);
+        //    if (handEnter1 == "Right Base Controller")
+        //    {
+        //        leftParent.transform.GetChild(0).gameObject.SetActive(false);
+        //        rightParent.transform.GetChild(0).gameObject.SetActive(false);
 
-                rightParent.transform.GetChild(1).gameObject.SetActive(false);
-                leftParent.transform.GetChild(1).gameObject.SetActive(true);
-            }
-            else if (handEnter1 == "Left Base Controller")
-            {
-                leftParent.transform.GetChild(0).gameObject.SetActive(false);
-                rightParent.transform.GetChild(0).gameObject.SetActive(false);
+        //        rightParent.transform.GetChild(1).gameObject.SetActive(false);
+        //        leftParent.transform.GetChild(1).gameObject.SetActive(true);
+        //    }
+        //    else if (handEnter1 == "Left Base Controller")
+        //    {
+        //        leftParent.transform.GetChild(0).gameObject.SetActive(false);
+        //        rightParent.transform.GetChild(0).gameObject.SetActive(false);
 
-                rightParent.transform.GetChild(1).gameObject.SetActive(true);
-                leftParent.transform.GetChild(1).gameObject.SetActive(false);
-            }
+        //        rightParent.transform.GetChild(1).gameObject.SetActive(true);
+        //        leftParent.transform.GetChild(1).gameObject.SetActive(false);
+        //    }
 
-        }
+        //}
 
         ////switch (batTag)
         ////{
@@ -254,6 +254,12 @@ public class TTPlayerRPCs : MonoBehaviourPun
         ////        }
         ////        break;
         ////}
+
+        leftParent.transform.GetChild(0).gameObject.SetActive(false);
+        rightParent.transform.GetChild(0).gameObject.SetActive(false);
+
+        rightParent.transform.GetChild(1).gameObject.SetActive(true);
+        leftParent.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     [PunRPC]
