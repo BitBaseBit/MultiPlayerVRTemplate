@@ -118,6 +118,9 @@ public class TTPlayerRPCs : MonoBehaviourPun
             Debug.Log(batInteractable);
             grabInteractor = batInteractable.selectingInteractor;
 
+            if (grabInteractor == null)
+                return;
+
             string handEnter1 = grabInteractor.name;
             Debug.Log(handEnter1);
             Debug.Log(batInteractable);
