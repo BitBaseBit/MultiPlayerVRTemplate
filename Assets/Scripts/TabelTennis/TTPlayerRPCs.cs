@@ -7,8 +7,11 @@ using Photon.Pun;
 public class TTPlayerRPCs : MonoBehaviourPun
 {
     XRBaseInteractor grabInteractor;
+
     XRGrabInteractable batInteractable;
+
     XRRayInteractor grabberLeft;
+
     XRDirectInteractor grabberRight;
 
     XRBaseInteractable batXR;
@@ -25,8 +28,11 @@ public class TTPlayerRPCs : MonoBehaviourPun
     bool firstTake;
     bool canSeeHands = true;
 
+    bool isHovering = false;
+
 
     GameObject bat;
+    char hand;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +42,29 @@ public class TTPlayerRPCs : MonoBehaviourPun
     // Update is called once per frame
     void Update()
     {
+        //if (isHovering)
+        //{
+        //    grabberLeft = leftParent.transform.root.GetChild(0).GetChild(0).GetChild(2).GetComponent<XRRayInteractor>();
+        //    grabberRight = rightParent.transform.root.GetChild(0).GetChild(0).GetChild(4).GetComponent<XRDirectInteractor>();
+
+        //    if (grabberRight.selectTarget == null && grabberLeft.selectTarget == null)
+        //        Debug.LogError("something went wrong with setting selectTarget");
+
+        //}
+        if (OVRInput.Get(OVRInput.RawButton.LHandTrigger))
+            Debug.Log("Hit left trigger more than half way");
     }
+
+    public void OnHoverEnter()
+    {
+        isHovering = true;
+    }
+
+    public void OnHoverExit()
+    {
+        isHovering = false;
+    }
+
     public void OnSelectEnter()
     {
         //grabberLeft = genericVRPlayerGameObj.transform.GetChild(0).GetChild(0).GetChild(2).GetComponent<XRRayInteractor>();
@@ -50,21 +78,60 @@ public class TTPlayerRPCs : MonoBehaviourPun
             return;
         }
 
+
+
+
         bat1Selected = bat1.GetComponent<XRGrabInteractable>().selectingInteractor == null;
         bat2Selected = bat2.GetComponent<XRGrabInteractable>().selectingInteractor == null;
 
-        Debug.Log("Got to 1");
+        var bat1Selector = bat1.GetComponent<XRGrabInteractable>().selectingInteractor; 
+        var bat2Selector = bat2.GetComponent<XRGrabInteractable>().selectingInteractor;
 
-        Debug.Log(photonView.IsMine);
-        Debug.Log(!bat1Selected);
-        Debug.Log(!bat2Selected);
+        if (!bat1Selected && bat2Selected)
+        {
+            if (bat1Selector.name == "Right Base Controller")
+            {
+                hand = 'R';
+            }
+            else if (bat1Selector.name == "Left Base Controller")
+            {
+                hand = 'L';
+            }
+
+        }
+        else if (bat1Selected && !bat2Selected)
+        {
+            if (bat2Selector.name == "Right Base Controller")
+            {
+                hand = 'R';
+            }
+            else if (bat2Selector.name == "Left Base Controller")
+            {
+                hand = 'L';
+            }
+        }
+
+
+        if (bat1Selector == null && bat2Selector == null)
+        {
+            Debug.Log("Both bat1Selector and bat2Selector were null");
+            return;
+        }
 
 
         if (photonView.IsMine && (!bat1Selected || !bat2Selected))
         {
-            Debug.Log("From Ed (photonView.IsMine): " + photonView.IsMine);
-            photonView.RPC("ShowController", RpcTarget.AllBuffered);
-            canSeeHands = false;
+            if (hand == 'R')
+            {
+                photonView.RPC("ShowLeftController", RpcTarget.AllBuffered);
+                canSeeHands = false;
+            }
+            else if (hand == 'L')
+            {
+                photonView.RPC("ShowRightController", RpcTarget.AllBuffered);
+                canSeeHands = false;
+            }
+            //photonView.RPC("ShowController", RpcTarget.AllBuffered);
         }
 
         isBeingHeld = true;
@@ -94,20 +161,16 @@ public class TTPlayerRPCs : MonoBehaviourPun
         //{
         //    photonView.RPC("ShowHands", RpcTarget.AllBuffered, 2);
         //}
-        Debug.Log("Got to 3");
-        Debug.Log(!bat1Selected);
-        Debug.Log(!bat2Selected);
         if (photonView.IsMine && !canSeeHands)
         {
-            Debug.Log("Got to 4");
             photonView.RPC("ShowHands",RpcTarget.AllBuffered);
             canSeeHands = true;
         }
     }
 
-    [PunRPC]
-    public void ShowController()
-    {
+    //[PunRPC]
+    //public void ShowController()
+    //{
         //bat1 = GameObject.FindGameObjectWithTag("bat1");
         //bat2 = GameObject.FindGameObjectWithTag("bat2");
 
@@ -255,6 +318,26 @@ public class TTPlayerRPCs : MonoBehaviourPun
         ////        break;
         ////}
 
+    //    leftParent.transform.GetChild(0).gameObject.SetActive(false);
+    //    rightParent.transform.GetChild(0).gameObject.SetActive(false);
+
+    //    rightParent.transform.GetChild(1).gameObject.SetActive(true);
+    //    leftParent.transform.GetChild(1).gameObject.SetActive(false);
+    //}
+
+    [PunRPC]
+    public void ShowLeftController()
+    {
+        leftParent.transform.GetChild(0).gameObject.SetActive(false);
+        rightParent.transform.GetChild(0).gameObject.SetActive(false);
+
+        rightParent.transform.GetChild(1).gameObject.SetActive(false);
+        leftParent.transform.GetChild(1).gameObject.SetActive(true);
+    }
+
+    [PunRPC]
+    public void ShowRightController()
+    {
         leftParent.transform.GetChild(0).gameObject.SetActive(false);
         rightParent.transform.GetChild(0).gameObject.SetActive(false);
 

@@ -80,7 +80,7 @@ public class TableTennisManager : MonoBehaviour
         {
             avatarHands.rightHand.SetActive(false);
             avatarHands.leftHand.SetActive(false);
-            oculusTouchLeft.SetActive(true);
+            oculusTouchLeft.SetActive(false);
             oculusTouchRight.SetActive(true); 
         }
     }
