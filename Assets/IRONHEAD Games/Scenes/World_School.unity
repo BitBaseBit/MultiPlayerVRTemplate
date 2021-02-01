@@ -3649,11 +3649,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
         type: 3}
+      propertyPath: m_OnHoverEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 796601175}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6170427359907712070, guid: bd518ab3b89d83d40be2c93353cd8a8a,
+        type: 3}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHoverEnter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6170427359907712070, guid: bd518ab3b89d83d40be2c93353cd8a8a,
+        type: 3}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnHoverExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_OnHoverExited.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404286535324102207, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+        type: 3}
+      propertyPath: m_AttachTransform
+      value: 
+      objectReference: {fileID: 1404286535135775392}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff044cc8ad670543bbc4e3af70d18ff, type: 3}
+--- !u!4 &1404286535135775392 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1404286534753873604, guid: 5ff044cc8ad670543bbc4e3af70d18ff,
+    type: 3}
+  m_PrefabInstance: {fileID: 1404286535135775391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &1456592791695490660
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4075,6 +4148,11 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 796601175}
+    - target: {fileID: 8969182729391488878, guid: fe236dcf0f1632e40bf4a4d2394661e3,
+        type: 3}
+      propertyPath: m_AttachTransform
+      value: 
+      objectReference: {fileID: 2752381333958536705}
     - target: {fileID: 8969182729391645511, guid: fe236dcf0f1632e40bf4a4d2394661e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4132,6 +4210,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe236dcf0f1632e40bf4a4d2394661e3, type: 3}
+--- !u!4 &2752381333958536705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2752381334994014344, guid: fe236dcf0f1632e40bf4a4d2394661e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2752381333958536704}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &2896635890381184134
 MeshCollider:
   m_ObjectHideFlags: 0
