@@ -487,10 +487,12 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
             //Get Left Controller position data
 
             this.m_NetworkPosition_LeftController = (Vector3)stream.ReceiveNext();
+            Debug.Log(this.m_NetworkPosition_LeftController);
             this.m_Direction_LeftController = (Vector3)stream.ReceiveNext();
 
             if (m_firstTake)
             {
+                Debug.Log(this.m_NetworkPosition_LeftController);
                 leftControllerTransform.localPosition = this.m_NetworkPosition_LeftController;
                 this.m_Distance_LeftController = 0f;
             }
