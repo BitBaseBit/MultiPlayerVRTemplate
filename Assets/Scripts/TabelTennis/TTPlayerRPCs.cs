@@ -121,6 +121,7 @@ public class TTPlayerRPCs : MonoBehaviourPun
             if (grabInteractor == null)
                 return;
 
+            Debug.Log("Got pas null check");
             string handEnter1 = grabInteractor.name;
             Debug.Log(handEnter1);
             Debug.Log(batInteractable);
