@@ -33,8 +33,8 @@ public class TennisBall : MonoBehaviour
     {
         Vector3 velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
         Vector3 angularVelocity = rb.angularVelocity;
-        Vector3 magnusForce = magnusConstant * Vector3.Cross(angularVelocity, Vector3.Scale(velocity, velocity));
-        Vector3 magnusForceDelta = magnusForce - magnusForcePrev;
+        Vector3 magnusForce = magnusConstant * Vector3.Cross(angularVelocity, velocity);
+        Vector3 magnusForceDelta = magnusForce;
         rb.AddForceAtPosition(magnusForceDelta, rb.centerOfMass, ForceMode.Force);
         magnusForcePrev = magnusForce;
         Debug.Log("Magnus force has been applied to ball: " + magnusForceDelta);
