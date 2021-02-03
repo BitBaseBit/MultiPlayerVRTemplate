@@ -16,7 +16,7 @@ MonoBehaviour:
   m_Colliders: []
   m_InteractionLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_OnFirstHoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -99,7 +99,7 @@ PrefabInstance:
     - target: {fileID: 1755250650347722048, guid: 662619e857e0ed6419a4a0a82b0f7a72,
         type: 3}
       propertyPath: m_Drag
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1755250650347722048, guid: 662619e857e0ed6419a4a0a82b0f7a72,
         type: 3}

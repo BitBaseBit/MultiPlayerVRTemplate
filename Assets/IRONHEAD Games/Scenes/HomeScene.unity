@@ -2945,10 +2945,6 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 639249172}
-    - target: {fileID: 2030077893, guid: 68ed9dff60bfc9c468ec48f02001ee72, type: 3}
-      propertyPath: m_InteractionLayerMask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
     - target: {fileID: 6364884082119391168, guid: 68ed9dff60bfc9c468ec48f02001ee72,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3003,6 +2999,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6364884082119391172, guid: 68ed9dff60bfc9c468ec48f02001ee72,
+        type: 3}
+      propertyPath: m_Drag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6364884082119391178, guid: 68ed9dff60bfc9c468ec48f02001ee72,
         type: 3}
@@ -4480,7 +4481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504131828}
   m_LocalRotation: {x: -0, y: 0.72462064, z: -0, w: -0.68914807}
-  m_LocalPosition: {x: 1.7893769, y: 0.43, z: -1.542}
+  m_LocalPosition: {x: 1.212, y: 0.43, z: -1.571}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 182423768}
@@ -9708,6 +9709,16 @@ PrefabInstance:
       propertyPath: m_OnHoverEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_RetainTransformParent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5166931218433738946, guid: 089d5142d990d0246928293229bb0485,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5166931218433738947, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
       propertyPath: m_Material
@@ -9732,7 +9743,7 @@ PrefabInstance:
     - target: {fileID: 5166931218433738958, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.212
+      value: 0.819
       objectReference: {fileID: 0}
     - target: {fileID: 5166931218433738958, guid: 089d5142d990d0246928293229bb0485,
         type: 3}
@@ -11199,7 +11210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7976639731608903616}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.42645568, y: 0.008019328, z: -1.6288586}
+  m_LocalPosition: {x: -0.081, y: 0.008019328, z: -1.6288586}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7976639731609322470}

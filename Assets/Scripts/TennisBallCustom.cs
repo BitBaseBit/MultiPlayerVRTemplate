@@ -7,10 +7,10 @@ public class TennisBallCustom : MonoBehaviour
     Rigidbody rb;
 
     float rho_air = 1.225f;
-    float Cd = 0.5f;
+    float Cd = 0.03f;
     float C_air;
 
-    float C_magnus = 3.0f * 0.0001f;
+    float C_magnus = 2.5f * 0.0001f;
 
     bool isColliding = false;
     void Awake()
