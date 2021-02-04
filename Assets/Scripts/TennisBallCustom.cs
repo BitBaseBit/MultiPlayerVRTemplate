@@ -7,10 +7,10 @@ public class TennisBallCustom : MonoBehaviour
     Rigidbody rb;
 
     float rho_air = 1.225f;
-    float Cd = 0.03f;
+    float Cd = 0.3f;
     float C_air;
 
-    float C_magnus = 2.5f * 0.0001f;
+    float C_magnus = 2.7f * 0.0001f;
 
     bool isColliding = false;
     void Awake()
@@ -18,20 +18,21 @@ public class TennisBallCustom : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         float radius = GetComponent<SphereCollider>().radius;
 
-        //rb.sleepVelocity = 0.001f;
-        //rb.sleepAngularVelocity = 0.001f;
+        rb.sleepThreshold = 0.01f;
 
         C_air = 0.5f * rho_air * Cd * (Mathf.PI * radius * radius);
     }
     void FixedUpdate()
     {
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, 50.0f);
+
+        //Magnus force
+        rb.AddForce(C_magnus * Vector3.Cross(rb.angularVelocity, rb.velocity));
+
         if (true)
         {
             //Air drag force
             rb.AddForce(- C_air * rb.velocity.magnitude * rb.velocity);
-
-            //Magnus force
-            rb.AddForce(C_magnus * Vector3.Cross(rb.angularVelocity, rb.velocity));
         }
     }
 

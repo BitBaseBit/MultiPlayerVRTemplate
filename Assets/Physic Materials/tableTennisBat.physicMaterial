@@ -9,6 +9,6 @@ PhysicMaterial:
   m_Name: TableTennisBat
   dynamicFriction: 0.7
   staticFriction: 0.8
-  bounciness: 0
-  frictionCombine: 0
-  bounceCombine: 3
+  bounciness: 0.1
+  frictionCombine: 1
+  bounceCombine: 0

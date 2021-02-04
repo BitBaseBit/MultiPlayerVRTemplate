@@ -99,13 +99,19 @@ PrefabInstance:
     - target: {fileID: 1755250650347722048, guid: 662619e857e0ed6419a4a0a82b0f7a72,
         type: 3}
       propertyPath: m_Drag
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1755250650347722048, guid: 662619e857e0ed6419a4a0a82b0f7a72,
         type: 3}
       propertyPath: m_AngularDrag
       value: 0.005
       objectReference: {fileID: 0}
+    - target: {fileID: 1755250650347722049, guid: 662619e857e0ed6419a4a0a82b0f7a72,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: d1955760a65302144a695551c21eba7b,
+        type: 2}
     - target: {fileID: 1755250650347722052, guid: 662619e857e0ed6419a4a0a82b0f7a72,
         type: 3}
       propertyPath: m_LocalPosition.x
