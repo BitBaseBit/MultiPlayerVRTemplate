@@ -30,8 +30,10 @@ public class TableTennisManager : MonoBehaviour
             grabInteractable.attachTransform = rightTransform;
             avatarHands.rightHand.SetActive(false);
             avatarHands.leftHand.SetActive(false);
+            Debug.Log(oculusTouchLeft.name);
             oculusTouchLeft.SetActive(true);
             oculusTouchRight.SetActive(false);
+            Debug.Log(oculusTouchRight.name);
         }
         else if (handEnter == "Left Base Controller")
         {

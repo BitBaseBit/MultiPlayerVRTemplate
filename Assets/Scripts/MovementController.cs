@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -16,7 +17,11 @@ public class MovementController : MonoBehaviour
 
     public GameObject mainVRPlayer;
 
+    public CapsuleCollider collider;
+    public GameObject avatar;
+
     public GameObject XRRig;
+
 
     private void OnEnable()
     {
@@ -37,6 +42,7 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        collider.center = new Vector3(avatar.transform.localPosition.x, 1.04f, avatar.transform.localPosition.z);
 
         foreach (XRController xRController in controllers)
         {
@@ -49,7 +55,6 @@ public class MovementController : MonoBehaviour
                 }
 
             }
-
         }
 
     }
