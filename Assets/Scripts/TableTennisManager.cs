@@ -31,7 +31,7 @@ public class TableTennisManager : MonoBehaviour
             var distanceRightFromBat = Vector3.Distance(selectorHands.HandRightTransform.position, bat.transform.position);
             var distanceLeftFromBat = Vector3.Distance(selectorHands.HandLeftTransform.position, bat.transform.position);
 
-            var grabInteractable = GetComponent<XRGrabInteractable>();
+            var grabInteractable = GetComponent<JitrGrabInteractable>();
 
             if (distanceRightFromBat < distanceLeftFromBat)
             {
@@ -59,7 +59,7 @@ public class TableTennisManager : MonoBehaviour
 
     public void OnSelectEnter()
     {
-        var grabInteractable = GetComponent<XRGrabInteractable>();
+        var grabInteractable = GetComponent<JitrGrabInteractable>();
 
 
         GameObject avatar = GameObject.FindGameObjectWithTag("avatar");

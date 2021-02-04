@@ -13,6 +13,7 @@ TagManager:
   - avatar
   - bat1
   - bat2
+  - TennisBall
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - LocalAvatarBody
   - InHand
   - InHandBat2
-  - 
+  - AvatarHands
   - 
   - 
   - 

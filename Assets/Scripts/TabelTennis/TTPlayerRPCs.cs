@@ -19,8 +19,9 @@ public class TTPlayerRPCs : MonoBehaviourPun
     public GameObject genericVRPlayerGameObj;
     public GameObject leftParent;
     public GameObject rightParent;
-    public GameObject bat1;
-    public GameObject bat2;
+
+    GameObject bat1;
+    GameObject bat2;
     bool isBeingHeld;
 
     bool bat1Selected;
@@ -63,11 +64,11 @@ public class TTPlayerRPCs : MonoBehaviourPun
 
 
 
-        bat1Selected = bat1.GetComponent<XRGrabInteractable>().selectingInteractor == null;
-        bat2Selected = bat2.GetComponent<XRGrabInteractable>().selectingInteractor == null;
+        bat1Selected = bat1.GetComponent<JitrGrabInteractable>().selectingInteractor == null;
+        bat2Selected = bat2.GetComponent<JitrGrabInteractable>().selectingInteractor == null;
 
-        var bat1Selector = bat1.GetComponent<XRGrabInteractable>().selectingInteractor; 
-        var bat2Selector = bat2.GetComponent<XRGrabInteractable>().selectingInteractor;
+        var bat1Selector = bat1.GetComponent<JitrGrabInteractable>().selectingInteractor; 
+        var bat2Selector = bat2.GetComponent<JitrGrabInteractable>().selectingInteractor;
 
         if (!bat1Selected && bat2Selected)
         {
