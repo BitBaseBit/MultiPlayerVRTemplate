@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
+using Photon.Pun;
 public class MovementController : MonoBehaviour
 {
     public float speed = 1.0f;
@@ -15,6 +16,11 @@ public class MovementController : MonoBehaviour
     TeleportationProvider teleportationProvider;
 
     public GameObject mainVRPlayer;
+
+    GameObject avatar;
+    public CapsuleCollider collider;
+    public GameObject[] avatarModels;
+    int avatarSelectionNum;
 
     public GameObject XRRig;
 
@@ -37,6 +43,19 @@ public class MovementController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        object storedAvatarNumber;
+        if (PhotonNetwork.LocalPlayer.CustomProperties.TryGetValue(MultiplayerVRConstants.AVATAR_SELECTION_NUMBER,
+                                                                   out storedAvatarNumber))
+        {
+            avatarSelectionNum = (int)storedAvatarNumber;
+        }
+        else
+        {
+            avatarSelectionNum = 0;
+        }
+        avatar = avatarModels[avatarSelectionNum];
+        collider.center = new Vector3(avatar.transform.localPosition.x, 1.04f, avatar.transform.localPosition.z);
 
         foreach (XRController xRController in controllers)
         {
