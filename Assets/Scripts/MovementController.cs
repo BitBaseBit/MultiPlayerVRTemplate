@@ -18,7 +18,7 @@ public class MovementController : MonoBehaviour
     public GameObject mainVRPlayer;
 
     GameObject avatar;
-    public CapsuleCollider collider;
+    CapsuleCollider collider;
     public GameObject[] avatarModels;
     int avatarSelectionNum;
 
@@ -54,7 +54,9 @@ public class MovementController : MonoBehaviour
         {
             avatarSelectionNum = 0;
         }
+
         avatar = avatarModels[avatarSelectionNum];
+        collider = avatar.GetComponent<CapsuleCollider>();
         collider.center = new Vector3(avatar.transform.localPosition.x, 1.04f, avatar.transform.localPosition.z);
 
         foreach (XRController xRController in controllers)
