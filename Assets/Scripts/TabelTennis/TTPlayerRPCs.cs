@@ -22,6 +22,7 @@ public class TTPlayerRPCs : MonoBehaviourPun
 
     GameObject bat1;
     GameObject bat2;
+
     bool isBeingHeld;
 
     bool bat1Selected;
@@ -41,6 +42,7 @@ public class TTPlayerRPCs : MonoBehaviourPun
     }
 
 
+
     //public void OnHoverEnter()
     //{
     //    isHovering = true;
@@ -55,6 +57,7 @@ public class TTPlayerRPCs : MonoBehaviourPun
     {
         bat1 = GameObject.FindGameObjectWithTag("bat1");
         bat2 = GameObject.FindGameObjectWithTag("bat2");
+
 
         if (bat1 == null && bat2 == null)
         {

@@ -99,6 +99,14 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
 
     // Rotation Controller
 
+    // Table Tennis Ball
+    GameObject ball;
+    private float distanceBall;
+    private Vector3 directionBall;
+    private Vector3 networkPositionBall;
+    private Vector3 storedPositionBall;
+
+
 
 
     bool m_firstTake = false;
@@ -164,6 +172,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
 
     public void Start()
     {
+        ball = GameObject.FindGameObjectWithTag("ball1");
 
         //Main VRPlayer Synch Init
         m_StoredPosition_GeneralVRPlayer = generalVRPlayerTransform.position;
@@ -192,6 +201,10 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
         m_StoredPosition_RightHand = rightHandTransform.localPosition;
         m_NetworkPosition_RightHand = Vector3.zero;
         m_NetworkRotation_RightHand = Quaternion.identity;
+
+        // Tennis Ball Sync Init
+        storedPositionBall = new Vector3(0.861f, 0.783408f, -3.199672f);
+        networkPositionBall = Vector3.zero;
 
 
 

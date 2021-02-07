@@ -14,6 +14,8 @@ TagManager:
   - bat1
   - bat2
   - TennisBall
+  - ball1
+  - ball2
   layers:
   - Default
   - TransparentFX
