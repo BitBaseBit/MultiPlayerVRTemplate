@@ -16,6 +16,8 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
 
     public Transform ballTransform;
 
+    public Rigidbody ballRigidBody;
+
     PhotonView photonView;
 
     private bool firstTake = false;
@@ -39,12 +41,12 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
     }
 
     // Update is called once per frame
-    public void Update()
+    public void FixedUpdate()
     {
         if (!photonView.IsMine)
         {
-            ballTransform.position = Vector3.MoveTowards(ballTransform.position, networkPositionBall, this.distanceBall * (1.0f / PhotonNetwork.SerializationRate));
-            ballTransform.rotation = Quaternion.RotateTowards(ballTransform.rotation, networkRotationBall, this.angleBall * (1.0f / PhotonNetwork.SerializationRate));
+            ballRigidBody.position = Vector3.MoveTowards(ballRigidBody.position, networkPositionBall, Time.fixedDeltaTime);
+            ballRigidBody.rotation = Quaternion.RotateTowards(ballTransform.rotation, networkRotationBall, Time.fixedDeltaTime * 100f);
         }
     }
 
@@ -52,47 +54,58 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
     {
         if (stream.IsWriting)
         {
-            directionBall = ballTransform.position - storedPositionBall;
-            storedPositionBall = ballTransform.position;
+            //directionBall = ballTransform.position - storedPositionBall;
+            //storedPositionBall = ballTransform.position;
 
-            stream.SendNext(ballTransform.position);
-            stream.SendNext(directionBall);
+            //stream.SendNext(ballTransform.position);
+            //stream.SendNext(directionBall);
 
-            stream.SendNext(ballTransform.rotation);
+            //stream.SendNext(ballTransform.rotation);
+
+            stream.SendNext(ballRigidBody.position);
+            stream.SendNext(ballRigidBody.rotation);
+            stream.SendNext(ballRigidBody.velocity);
         }
         else
         {
             networkPositionBall = (Vector3)stream.ReceiveNext();
-            directionBall = (Vector3)stream.ReceiveNext();
-
-            if (firstTake)
-            {
-                ballTransform.position = networkPositionBall;
-                distanceBall = 0f;
-            }
-            else 
-            {
-                float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
-                networkPositionBall += directionBall * lag;
-                distanceBall = Vector3.Distance(ballTransform.position, networkPositionBall);
-            }
-
             networkRotationBall = (Quaternion)stream.ReceiveNext();
+            ballRigidBody.velocity = (Vector3)stream.ReceiveNext();
 
-            if (firstTake)
-            {
-                angleBall = 0f;
-                ballTransform.rotation = networkRotationBall;
-            }
-            else
-            {
-                angleBall = Quaternion.Angle(ballTransform.rotation, networkRotationBall);
-            }
+            float lag2 = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+            networkPositionBall += (this.ballRigidBody.velocity * lag2);
 
-            if (firstTake)
-            {
-                firstTake = false;
-            }    
+            //networkPositionBall = (Vector3)stream.ReceiveNext();
+            //directionBall = (Vector3)stream.ReceiveNext();
+
+            //if (firstTake)
+            //{
+            //    ballTransform.position = networkPositionBall;
+            //    distanceBall = 0f;
+            //}
+            //else 
+            //{
+            //    float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+            //    networkPositionBall += directionBall * lag;
+            //    distanceBall = Vector3.Distance(ballTransform.position, networkPositionBall);
+            //}
+
+            //networkRotationBall = (Quaternion)stream.ReceiveNext();
+
+            //if (firstTake)
+            //{
+            //    angleBall = 0f;
+            //    ballTransform.rotation = networkRotationBall;
+            //}
+            //else
+            //{
+            //    angleBall = Quaternion.Angle(ballTransform.rotation, networkRotationBall);
+            //}
+
+            //if (firstTake)
+            //{
+            //    firstTake = false;
+            //}    
         }
     }
 }

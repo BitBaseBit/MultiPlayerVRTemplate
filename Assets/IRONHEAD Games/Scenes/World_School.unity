@@ -1604,6 +1604,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballTransform: {fileID: 924825368}
+  ballRigidBody: {fileID: 924825370}
+--- !u!54 &924825370 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2989184835318383014, guid: 0f3c2f986f54e444088de44a3802dee1,
+    type: 3}
+  m_PrefabInstance: {fileID: 924825366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1085803925
 GameObject:
   m_ObjectHideFlags: 0
