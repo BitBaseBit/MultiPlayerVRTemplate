@@ -29,8 +29,8 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     private float m_Angle_GeneralVRPlayer;
 
 
-    //Main Avatar Transform Synch
-    [Header("Main Avatar Transform Synch")]
+    //Main Avatar Transform Sync
+    [Header("Main Avatar Transform Sync")]
     public Transform mainAvatarTransform;
 
 
@@ -45,7 +45,7 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     private Quaternion m_NetworkRotation_MainAvatar;
     private float m_Angle_MainAvatar;
 
-    //Head  Synch
+    //Head  Sync
     //Rotation
     [Header("Avatar Head Transform Synch")]
     public Transform headTransform;
@@ -53,17 +53,17 @@ public class MultiplayerVRSynchronization : MonoBehaviour, IPunObservable
     private Quaternion m_NetworkRotation_Head;
     private float m_Angle_Head;
 
-    //Body Synch
+    //Body Sync
     //Rotation
-    [Header("Avatar Body Transform Synch")]
+    [Header("Avatar Body Transform Sync")]
     public Transform bodyTransform;
 
     private Quaternion m_NetworkRotation_Body;
     private float m_Angle_Body;
 
 
-    //Hands Synch
-    [Header("Hands Transform Synch")]
+    //Hands Sync
+    [Header("Hands Transform Sync")]
     public Transform leftHandTransform;
 
     public Transform rightHandTransform;

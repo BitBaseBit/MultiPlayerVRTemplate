@@ -62,14 +62,11 @@ public class NetworkGrabbing : MonoBehaviourPunCallbacks, IPunOwnershipCallbacks
         {
             return;
         }
-        Debug.Log(targetView);
-        Debug.Log(requestingPlayer);
         photonView.TransferOwnership(requestingPlayer);
     }
 
     public void OnOwnershipTransfered(PhotonView targetView, Player previousOwner)
     {
-        Debug.Log(photonView.Owner);
     }
 
     [PunRPC]
