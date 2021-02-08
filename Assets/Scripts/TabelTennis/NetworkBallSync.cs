@@ -48,7 +48,7 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
     }
 
     // Update is called once per frame
-    public void FixedUpdate()
+    public void Update()
     {
         //if (!photonView.IsMine)
         //{
@@ -56,8 +56,8 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
         //ballRigidBody.rotation = Quaternion.RotateTowards(ballTransform.rotation, networkRotationBall, Time.fixedDeltaTime * 100f);
         //}
 
-        fraction = fraction + Time.fixedDeltaTime * 9;
-        ballTransform.position = Vector3.Lerp(onUpdatePos, lastCorrectPos, fraction);
+        fraction = fraction + Time.deltaTime * 9;
+        ballTransform.localPosition = Vector3.Lerp(onUpdatePos, lastCorrectPos, fraction);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -72,14 +72,14 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
 
             //stream.SendNext(ballTransform.rotation);
 
-            stream.SendNext(ballTransform.position);
+            stream.SendNext(ballTransform.localPosition);
             //stream.SendNext(ballRigidBody.rotation);
             //stream.SendNext(ballRigidBody.velocity);
         }
         else
         {
             lastCorrectPos = (Vector3)stream.ReceiveNext();
-            onUpdatePos = ballTransform.position;
+            onUpdatePos = ballTransform.localPosition;
             fraction = 0;
             //networkRotationBall = (Quaternion)stream.ReceiveNext();
             //ballRigidBody.velocity = (Vector3)stream.ReceiveNext();
