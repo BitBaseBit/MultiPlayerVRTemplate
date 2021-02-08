@@ -22,10 +22,17 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
 
     private bool firstTake = false;
 
+    private Vector3 onUpdatePos;
+    private Vector3 lastCorrectPos;
+    private float fraction;
+
 
     private void Awake()
     {
         photonView = this.GetComponent<PhotonView>();
+
+        lastCorrectPos = ballTransform.position;
+        onUpdatePos = ballTransform.position;
     }
 
     private void OnEnable()
@@ -36,18 +43,21 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
     void Start()
     {
         ball = GameObject.FindGameObjectWithTag("ball1");
-        storedPositionBall = new Vector3(0.861f, 0.783408f, -3.199672f);
-        networkPositionBall = new Vector3(0.861f, 0.783408f, -3.199672f);
+        //storedPositionBall = new Vector3(0.861f, 0.783408f, -3.199672f);
+        //networkPositionBall = new Vector3(0.861f, 0.783408f, -3.199672f);
     }
 
     // Update is called once per frame
     public void FixedUpdate()
     {
-        if (!photonView.IsMine)
-        {
-            ballRigidBody.position = Vector3.MoveTowards(ballRigidBody.position, networkPositionBall, Time.fixedDeltaTime);
-            ballRigidBody.rotation = Quaternion.RotateTowards(ballTransform.rotation, networkRotationBall, Time.fixedDeltaTime * 100f);
-        }
+        //if (!photonView.IsMine)
+        //{
+        //ballRigidBody.position = Vector3.MoveTowards(ballRigidBody.position, networkPositionBall, Time.fixedDeltaTime);
+        //ballRigidBody.rotation = Quaternion.RotateTowards(ballTransform.rotation, networkRotationBall, Time.fixedDeltaTime * 100f);
+        //}
+
+        fraction = fraction + Time.fixedDeltaTime * 9;
+        ballTransform.position = Vector3.Lerp(onUpdatePos, lastCorrectPos, fraction);
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -62,18 +72,20 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
 
             //stream.SendNext(ballTransform.rotation);
 
-            stream.SendNext(ballRigidBody.position);
-            stream.SendNext(ballRigidBody.rotation);
-            stream.SendNext(ballRigidBody.velocity);
+            stream.SendNext(ballTransform.position);
+            //stream.SendNext(ballRigidBody.rotation);
+            //stream.SendNext(ballRigidBody.velocity);
         }
         else
         {
-            networkPositionBall = (Vector3)stream.ReceiveNext();
-            networkRotationBall = (Quaternion)stream.ReceiveNext();
-            ballRigidBody.velocity = (Vector3)stream.ReceiveNext();
+            lastCorrectPos = (Vector3)stream.ReceiveNext();
+            onUpdatePos = ballTransform.position;
+            fraction = 0;
+            //networkRotationBall = (Quaternion)stream.ReceiveNext();
+            //ballRigidBody.velocity = (Vector3)stream.ReceiveNext();
 
-            float lag2 = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
-            networkPositionBall += (this.ballRigidBody.velocity * lag2);
+            //float lag2 = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+            //networkPositionBall += (this.ballRigidBody.velocity * lag2);
 
             //networkPositionBall = (Vector3)stream.ReceiveNext();
             //directionBall = (Vector3)stream.ReceiveNext();
