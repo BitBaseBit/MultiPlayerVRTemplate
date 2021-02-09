@@ -52,20 +52,20 @@ public class NetworkBallSync : MonoBehaviour, IPunObservable
     // Update is called once per frame
     public void Update()
     {
-        if (!photonView.IsMine)
-        {
-            float count = 0f;
-            float duration = 0.1f;
-            while (count < duration)
-            {
-                count += Time.deltaTime;
-                Vector3 currentPos = ballTransform.position;
-                float time = Vector3.Distance(currentPos, networkPositionBall) / (duration - count) * Time.deltaTime;
-                ballTransform.position = Vector3.MoveTowards(ballTransform.position, networkPositionBall, time);
-            }
+        //if (!photonView.IsMine)
+        //{
+        //    float count = 0f;
+        //    float duration = 0.1f;
+        //    while (count < duration)
+        //    {
+        //        count += Time.deltaTime;
+        //        Vector3 currentPos = ballTransform.position;
+        //        float time = Vector3.Distance(currentPos, networkPositionBall) / (duration - count) * Time.deltaTime;
+        //        ballTransform.position = Vector3.MoveTowards(ballTransform.position, networkPositionBall, time);
+        //    }
             //ballRigidBody.position = Vector3.MoveTowards(ballRigidBody.position, networkPositionBall, Mathf.Abs(Vector3.Magnitude(ballRigidBody.velocity)) * Time.fixedDeltaTime);
             //ballRigidBody.rotation = Quaternion.RotateTowards(ballTransform.rotation, networkRotationBall, Time.fixedDeltaTime * 100f);
-        }
+        //}
 
     }
 
